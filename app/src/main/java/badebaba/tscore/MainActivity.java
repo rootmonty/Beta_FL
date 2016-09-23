@@ -27,6 +27,7 @@ import badebaba.tscore.Tscore.Teacher;
 
 public class MainActivity extends AppCompatActivity {
 
+    BottomBar bottomBar;
     private Toolbar toolbar;
     private PrefManager pref;
     private TextView name, email, mobile;
@@ -37,9 +38,9 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         toolbar = (Toolbar) findViewById(R.id.toolbar);
-        name = (TextView) findViewById(R.id.name);
-        email = (TextView) findViewById(R.id.email);
-        mobile = (TextView) findViewById(R.id.mobile);
+        //   name = (TextView) findViewById(R.id.name);
+        //   email = (TextView) findViewById(R.id.email);
+        //  mobile = (TextView) findViewById(R.id.mobile);
 
         // enabling toolbar
         setSupportActionBar(toolbar);
