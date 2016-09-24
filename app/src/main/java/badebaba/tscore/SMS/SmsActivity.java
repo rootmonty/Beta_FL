@@ -11,6 +11,7 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
@@ -105,7 +106,7 @@ public class SmsActivity extends AppCompatActivity implements View.OnClickListen
 
         adapter = new ViewPagerAdapter();
         viewPager.setAdapter(adapter);
-        viewPager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+        viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
             public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
             }
@@ -294,10 +295,11 @@ public class SmsActivity extends AppCompatActivity implements View.OnClickListen
 
         @Override
         public boolean isViewFromObject(View view, Object object) {
-            return view == ((View) object);
+            return view == object;
         }
 
-        public Object instantiateItem(View collection, int position) {
+
+        public Object instantiateItem(ViewGroup collection, int position) {
 
             int resId = 0;
             switch (position) {
