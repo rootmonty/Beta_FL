@@ -15,7 +15,7 @@ import java.util.HashMap;
  */
 public class PrefManager {
     // Shared preferences file name
-    private static final String PREF_NAME = "AndroidHive";
+    private static final String PREF_NAME = "Tscore";
     // All Shared Preferences Keys
     private static final String KEY_IS_WAITING_FOR_SMS = "IsWaitingForSms";
     private static final String KEY_MOBILE_NUMBER = "mobile_number";

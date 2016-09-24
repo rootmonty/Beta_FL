@@ -56,13 +56,16 @@ public class MainActivity extends AppCompatActivity {
         }
 
         // Displaying user information from shared preferences
+       /*
         HashMap<String, String> profile = pref.getUserDetails();
+
         name.setText("Name: " + profile.get("name"));
         email.setText("Email: " + profile.get("email"));
         mobile.setText("Mobile: " + profile.get("mobile"));
 
+        */
 
-        BottomBar bottomBar = (BottomBar) findViewById(R.id.bottomBar);
+        bottomBar = (BottomBar) findViewById(R.id.bottomBar);
         bottomBar.setOnTabSelectListener(new OnTabSelectListener() {
             @Override
             public void onTabSelected(@IdRes int tabId) {

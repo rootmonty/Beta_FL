@@ -31,7 +31,7 @@ import badebaba.tscore.SMS.helper.PrefManager;
 public class HttpService extends IntentService {
 
     private static String TAG = HttpService.class.getSimpleName();
-    RequestQueue requestQueue;
+
 
     public HttpService() {
         super(HttpService.class.getSimpleName());
@@ -51,7 +51,8 @@ public class HttpService extends IntentService {
      * @param otp otp received in the SMS
      */
     private void verifyOtp(final String otp) {
-        requestQueue = Volley.newRequestQueue(getApplicationContext());
+        RequestQueue requestQueue2;
+        requestQueue2 = Volley.newRequestQueue(getApplicationContext());
 
         StringRequest strReq = new StringRequest(Request.Method.POST,
                 Config.URL_VERIFY_OTP, new Response.Listener<String>() {
@@ -119,7 +120,7 @@ public class HttpService extends IntentService {
         };
 
         // Adding request to request queue
-        requestQueue.add(strReq);
+        requestQueue2.add(strReq);
 
     }
 

@@ -41,7 +41,7 @@ import badebaba.tscore.SMS.helper.PrefManager;
 public class SmsActivity extends AppCompatActivity implements View.OnClickListener {
 
     private static String TAG = SmsActivity.class.getSimpleName();
-
+    RequestQueue requestQueue;
     private ViewPager viewPager;
     private ViewPagerAdapter adapter;
     private Button btnRequestSms, btnVerifyOtp;
@@ -51,7 +51,6 @@ public class SmsActivity extends AppCompatActivity implements View.OnClickListen
     private ImageButton btnEditMobile;
     private TextView txtEditMobile;
     private LinearLayout layoutEditMobile;
-    private RequestQueue requestQueue;
 
     /**
      * Regex to validate the mobile number

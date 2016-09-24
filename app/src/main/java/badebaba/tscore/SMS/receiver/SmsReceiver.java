@@ -14,9 +14,7 @@ import android.util.Log;
 import badebaba.tscore.SMS.Config;
 import badebaba.tscore.SMS.Service.HttpService;
 
-/**
- * Created by Ravi on 09/07/15.
- */
+
 public class SmsReceiver extends BroadcastReceiver {
     private static final String TAG = SmsReceiver.class.getSimpleName();
 
@@ -28,7 +26,8 @@ public class SmsReceiver extends BroadcastReceiver {
             if (bundle != null) {
                 Object[] pdusObj = (Object[]) bundle.get("pdus");
                 for (Object aPdusObj : pdusObj) {
-                    SmsMessage currentMessage = SmsMessage.createFromPdu((byte[]) aPdusObj);
+                    String format = bundle.getString("format");
+                    SmsMessage currentMessage = SmsMessage.createFromPdu((byte[]) aPdusObj, format);
                     String senderAddress = currentMessage.getDisplayOriginatingAddress();
                     String message = currentMessage.getDisplayMessageBody();
 
