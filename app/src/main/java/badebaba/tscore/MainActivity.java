@@ -51,9 +51,10 @@ public class MainActivity extends AppCompatActivity {
 
         // Checking if user session
         // if not logged in, take user to sms screen
-        if (!pref.isLoggedIn()) {
+       /* if (!pref.isLoggedIn()) {
             logout();
         }
+        */
 
         // Displaying user information from shared preferences
        /*
