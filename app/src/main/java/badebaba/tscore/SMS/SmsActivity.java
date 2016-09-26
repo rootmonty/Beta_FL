@@ -20,6 +20,7 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.android.volley.DefaultRetryPolicy;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
@@ -196,7 +197,7 @@ public class SmsActivity extends AppCompatActivity implements View.OnClickListen
 
             @Override
             public void onResponse(String response) {
-                Log.d(TAG, response.toString());
+                Log.d(TAG, response);
 
                 try {
                     JSONObject responseObj = new JSONObject(response);
@@ -242,8 +243,13 @@ public class SmsActivity extends AppCompatActivity implements View.OnClickListen
             @Override
             public void onErrorResponse(VolleyError error) {
                 Log.e(TAG, "Error: " + error.getMessage());
+                Log.e("abd", "Error: " + error
+                        + ">>" + error.networkResponse.statusCode
+                        + ">>" + error.networkResponse.data
+                        + ">>" + error.getCause()
+                        + ">>" + error.getMessage());
                 Toast.makeText(getApplicationContext(),
-                        error.getMessage(), Toast.LENGTH_SHORT).show();
+                        "the error is :" + error.getMessage(), Toast.LENGTH_SHORT).show();
                 progressBar.setVisibility(View.GONE);
             }
         }) {
@@ -268,6 +274,11 @@ public class SmsActivity extends AppCompatActivity implements View.OnClickListen
 
         // Adding request to request queue
         // MyApplication.getInstance() =  Volley.newRequestQueue(this);
+        // requestQueue.setRetryPolicy(new DefaultRetryPolicy(0, -1, DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
+        strReq.setRetryPolicy(new DefaultRetryPolicy(
+                100000,
+                DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
+                DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
         requestQueue.add(strReq);
     }
 
