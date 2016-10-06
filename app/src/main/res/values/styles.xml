@@ -16,4 +16,8 @@
         <item name="android:windowBackground">@drawable/rsz_final_options_029</item>
     </style>
 
+    <style name="MyMaterialTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="MyMaterialTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
 </resources>

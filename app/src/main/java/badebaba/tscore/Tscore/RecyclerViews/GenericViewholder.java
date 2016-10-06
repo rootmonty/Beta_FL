@@ -1,6 +1,8 @@
 package badebaba.tscore.Tscore.RecyclerViews;
 
+import android.support.v7.widget.CardView;
 import android.view.View;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -14,12 +16,16 @@ public class GenericViewholder extends CarViewholder {
 
     TextView ques;
     TextView tv1, tv2, tv3, tv4, tv5;
+    LinearLayout counter;
+    CardView cardview1;
     // Firebase mref;
     // Button bottomb;
 
     public GenericViewholder(View itemView) {
         super(itemView);
 
+        // cardview1 = (CardView) itemView.findViewById(R.id.card_view1) ;
+        counter = (LinearLayout) itemView.findViewById(R.id.tv_counter);
         ques = (TextView) itemView.findViewById(R.id.setQuestion);
         tv1 = (TextView) itemView.findViewById(R.id.one);
         tv2 = (TextView) itemView.findViewById(R.id.two);

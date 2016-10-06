@@ -1,6 +1,8 @@
 package badebaba.tscore.Tscore.RecyclerViews;
 
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -9,6 +11,8 @@ import android.view.ViewGroup;
 import android.widget.Toast;
 
 import badebaba.tscore.R;
+
+import static java.lang.StrictMath.abs;
 
 
 /**
@@ -29,6 +33,7 @@ public class CardAdapter extends RecyclerView.Adapter<CarViewholder> {
 
     public static int CARD_VAL = 1;
     public static int BUTTON_VAL = 2;
+    int countercount = 0;
     String[] ques = {"How would you grade the Teachers",
             "How Did You Find The Study Material",
             "How Was The Coaching Infrastructure",
@@ -86,8 +91,23 @@ public class CardAdapter extends RecyclerView.Adapter<CarViewholder> {
             buttonViewHolder.bottombutton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    Toast.makeText(view.getContext(), " DATA Sent with the Comment", Toast.LENGTH_SHORT).show();
-                    Toast.makeText(context, "Button Clicked", Toast.LENGTH_LONG).show();
+
+                    if (countercount >= getItemCount() - 2) {
+                        new AlertDialog.Builder(view.getContext())
+                                .setTitle("Title")
+                                .setMessage("Do you really want to submit?")
+                                .setIcon(android.R.drawable.ic_dialog_alert)
+                                .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+
+                                    public void onClick(DialogInterface dialog, int whichButton) {
+                                        Toast.makeText(context, "Yaay", Toast.LENGTH_SHORT).show();
+                                    }
+                                })
+                                .setNegativeButton(android.R.string.no, null).show();
+                        Toast.makeText(view.getContext(), " DATA Sent with the Comment", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(context, "Button Clicked", Toast.LENGTH_LONG).show();
+                    } else
+                        Toast.makeText(view.getContext(), "Still :" + abs(countercount - getItemCount()) + "left to submit", Toast.LENGTH_SHORT).show();
                 }
             });
         }
@@ -100,6 +120,13 @@ public class CardAdapter extends RecyclerView.Adapter<CarViewholder> {
             //  genericViewholder.ques.setText(ques[position]);
             //  else {
             genericViewholder.ques.setText(ques[position]);
+            genericViewholder.counter.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    countercount++;
+
+                }
+            });
             // genericViewholder.tv1.setBackgroundResource(R.color.standardwhite);
             // genericViewholder.tv2.setBackgroundResource(R.color.standardwhite);
             // genericViewholder.tv3.setBackgroundResource(R.color.standardwhite);

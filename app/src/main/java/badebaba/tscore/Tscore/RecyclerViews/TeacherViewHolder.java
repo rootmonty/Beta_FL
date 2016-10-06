@@ -1,9 +1,15 @@
 package badebaba.tscore.Tscore.RecyclerViews;
 
+import android.app.AlertDialog;
+import android.content.Context;
+import android.content.DialogInterface;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -23,11 +29,15 @@ public class TeacherViewHolder extends RecyclerView.ViewHolder {
     TextView Elaborate;
     EditText ElaborateAns;
     Button submit;
+    LinearLayout tll;
+    CardView keyboardview;
 
 
-    public TeacherViewHolder(View itemView) {
+    public TeacherViewHolder(final View itemView) {
         super(itemView);
         // mref = new Firebase("https://tscf-b4925.firebaseio.com/teacherfeedback/");
+
+        keyboardview = (CardView) itemView.findViewById(R.id.teachercardview);
         TeacherName = (TextView) itemView.findViewById(R.id.staffname);
         q1 = (TextView) itemView.findViewById(R.id.q1);
         q2 = (TextView) itemView.findViewById(R.id.q2);
@@ -743,6 +753,7 @@ public class TeacherViewHolder extends RecyclerView.ViewHolder {
         b54.setOnClickListener(clicklistener6);
         b55.setOnClickListener(clicklistener6);
 //
+
         View.OnClickListener submission = new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -753,7 +764,38 @@ public class TeacherViewHolder extends RecyclerView.ViewHolder {
                 Toast.makeText(view.getContext(), "Your Teacher Submission is Done", Toast.LENGTH_LONG).show();
             }
         };
-        submit.setOnClickListener(submission);
+        // submit.setOnClickListener(submission);
+        submit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //  if (countercount >= getItemCount()-2) {
+             /*   if (b01.getDrawableState() == null || b02.getDrawableState() == null || b03.getDrawableState() == null || b04.getDrawableState() == null ||
+                        b05.getDrawableState() == null || b11.getDrawableState() == null || b12.getDrawableState() == null ||
+                        b13.getDrawableState() == null || b14.getDrawableState() == null || b15.getDrawableState() == null ||
+                        b21.getDrawableState() == null || b22.getDrawableState() == null || b23.getDrawableState() == null ||
+                        b24.getDrawableState() == null || b25.getDrawableState() == null || b31.getDrawableState() == null ||
+                        b32.getDrawableState() == null || b33.getDrawableState() == null || b34.getDrawableState() == null ||
+                        b35.getDrawableState() == null || b41.getDrawableState() == null || b42.getDrawableState() == null ||
+                        b43.getDrawableState() == null || b44.getDrawableState() == null || b45.getDrawableState() == null ||
+                        b51.getDrawableState() == null || b52.getDrawableState() == null || b53.getDrawableState() == null ||
+                        b54.getDrawableState() == null || b55.getDrawableState() == null) {
+                } else { */
+
+                new AlertDialog.Builder(v.getContext())
+                        .setTitle("Submission")
+                        .setMessage("Do you really want to submit?")
+                        .setIcon(android.R.drawable.ic_dialog_alert)
+                        .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+
+                            public void onClick(DialogInterface dialog, int whichButton) {
+                                Toast.makeText(itemView.getContext(), "Yay", Toast.LENGTH_SHORT).show();
+                            }
+                        })
+                        .setNegativeButton(android.R.string.no, null).show();
+                // Toast.makeText(v.getContext(), "Submission for this teacher is done", Toast.LENGTH_SHORT).show();
+                //  Toast.makeText(context, "Move to next", Toast.LENGTH_LONG).show();
+            }
+        });
 
 
     }

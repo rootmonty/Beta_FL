@@ -38,6 +38,7 @@
         </LinearLayout>
 
         <LinearLayout
+            android:id="@+id/tv_counter"
             android:layout_width="150dp"
             android:layout_height="30dp"
             android:layout_gravity="center_horizontal"
@@ -52,6 +53,7 @@
                 android:layout_weight="1"
                 android:background="@drawable/bg_red"
                 android:contextClickable="false"
+                android:duplicateParentState="true"
                 android:ellipsize="middle"
                 android:focusableInTouchMode="true"
                 android:padding="5dp"
@@ -64,6 +66,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:background="@drawable/bg_red"
+                android:duplicateParentState="true"
                 android:focusableInTouchMode="true"
                 android:padding="5dp"
                 android:shadowColor="@color/standardwhite"
@@ -76,6 +79,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:background="@drawable/bg_red"
+                android:duplicateParentState="true"
                 android:focusableInTouchMode="true"
                 android:padding="5dp"
                 android:shadowColor="@color/standardwhite"
@@ -88,6 +92,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:background="@drawable/bg_red"
+                android:duplicateParentState="true"
                 android:padding="5dp"
                 android:shadowColor="@color/standardwhite"
                 android:text="4"
@@ -99,6 +104,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:background="@drawable/bg_red"
+                android:duplicateParentState="true"
                 android:focusableInTouchMode="true"
                 android:padding="5dp"
                 android:shadowColor="@color/standardwhite"

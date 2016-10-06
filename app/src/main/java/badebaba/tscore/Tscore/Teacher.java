@@ -2,11 +2,13 @@ package badebaba.tscore.Tscore;
 
 import android.app.Fragment;
 import android.os.Bundle;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.InputMethodManager;
 
 import badebaba.tscore.R;
 import badebaba.tscore.Tscore.RecyclerViews.TeacherAdapter;
@@ -16,6 +18,7 @@ public class Teacher extends Fragment {
 
     RecyclerView recyclerView2;
     LinearLayoutManager linearLayoutManager;
+    CardView keyboard;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {

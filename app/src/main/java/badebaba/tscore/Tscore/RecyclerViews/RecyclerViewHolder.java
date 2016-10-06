@@ -1,6 +1,7 @@
 package badebaba.tscore.Tscore.RecyclerViews;
 
 import android.graphics.Color;
+import android.support.v7.widget.CardView;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -25,14 +26,16 @@ public class RecyclerViewHolder extends CarViewholder {
     LinearLayout linearLayout;
     //Adding questions
     TextView q1, q2, q3;
+    // CardView teacher;
 
 
     public RecyclerViewHolder(final View itemView) {
         super(itemView);
 
+        // teacher = (CardView) itemView.findViewById(R.id.teachercardview) ;
         // mref = new Firebase("https://tscf-b4925.firebaseio.com/stafffeedback/");
         staff = (TextView) itemView.findViewById(R.id.list_title);
-        visible = (LinearLayout) itemView.findViewById(R.id.visible);
+        // visible = (LinearLayout) itemView.findViewById(R.id.visible);
         imageView = (ImageView) itemView.findViewById(R.id.list_avatar);
         staff.setTextColor(Color.BLACK);
         q1 = (TextView) itemView.findViewById(R.id.staffq1);
@@ -56,16 +59,19 @@ public class RecyclerViewHolder extends CarViewholder {
         b23 = (Button) itemView.findViewById(R.id.stb23);
         b24 = (Button) itemView.findViewById(R.id.stb24);
         b25 = (Button) itemView.findViewById(R.id.stb25);
+        linearLayout.setVisibility(View.VISIBLE);
 
-
+       /*
         View.OnClickListener clicklistener0 = new View.OnClickListener() {
+
             @Override
             public void onClick(View view) {
-                visible.setVisibility(View.INVISIBLE);
+              //  visible.setVisibility(View.INVISIBLE);
                 Toast.makeText(view.getContext(), "Layout is made visible", Toast.LENGTH_SHORT).show();
-                linearLayout.setVisibility(View.VISIBLE);
+
             }
         };
+        */
 
         View.OnClickListener clicklistener1 = new View.OnClickListener() {
             @Override
@@ -289,7 +295,7 @@ public class RecyclerViewHolder extends CarViewholder {
         };
 
 
-        visible.setOnClickListener(new View.OnClickListener() {
+      /*  visible.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View view) {
@@ -300,13 +306,14 @@ public class RecyclerViewHolder extends CarViewholder {
                 value.setQ3(q3.getText().toString());
                 mref.child("Staff").push().setValue(value);
                 Toast.makeText(view.getContext(), "Your Staff Submission is Done", Toast.LENGTH_SHORT).show();
-                */
+
                 linearLayout.setVisibility(View.INVISIBLE);
             }
         });
+        */
 
 
-        imageView.setOnClickListener(clicklistener0);
+        // imageView.setOnClickListener(clicklistener0);
         b01.setOnClickListener(clicklistener1);
         b02.setOnClickListener(clicklistener1);
         b03.setOnClickListener(clicklistener1);

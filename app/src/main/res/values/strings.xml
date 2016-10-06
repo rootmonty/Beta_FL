@@ -82,4 +82,6 @@
     <string name="q8">Problem Solving</string>
     <string name="q9">Helpfulness</string>
     <string name="q10">Behaviour</string>
+    <string name="title_teacher_list">Teachers</string>
+    <string name="title_teacher_detail">Teacher Detail</string>
 </resources>

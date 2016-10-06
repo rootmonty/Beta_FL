@@ -15,17 +15,17 @@
         <activity
             android:name=".SMS.SmsActivity"
             android:label="Register"
-            android:screenOrientation="portrait">
-
-
-        </activity>
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan"></activity>
         <activity
             android:name=".MainActivity"
             android:label="@string/app_name"
             android:screenOrientation="portrait"
-            android:windowSoftInputMode="adjustResize">
-
-
+            android:windowSoftInputMode="adjustPan">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER"></category>
+            </intent-filter>
         </activity>
         <!-- SMS Receiver -->
         <receiver android:name=".SMS.receiver.SmsReceiver">
@@ -33,7 +33,6 @@
                 <action android:name="android.provider.Telephony.SMS_RECEIVED" />
             </intent-filter>
         </receiver>
-
 
         <!-- Intent service -->
         <service
@@ -45,11 +44,25 @@
             android:label="@string/app_name"
             android:screenOrientation="portrait"
             android:theme="@style/SplashTheme">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+        </activity>
+        <activity
+            android:name=".TeacherDetail.TeacherListActivity"
+            android:label="@string/title_teacher_list"
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/MyMaterialTheme">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="badebaba.tscore.MainActivity" />
+        </activity>
+        <activity
+            android:name=".TeacherDetail.TeacherDetailActivity"
+            android:label="@string/title_teacher_detail"
+            android:parentActivityName=".TeacherDetail.TeacherListActivity"
+            android:theme="@style/MyMaterialTheme">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="badebaba.tscore.TeacherDetail.TeacherListActivity" />
         </activity>
     </application>
 

@@ -3,11 +3,7 @@
     xmlns:card_view="http://schemas.android.com/apk/res-auto"
     android:id="@+id/card_view"
     android:layout_width="match_parent"
-    android:layout_height="330dp"
-    android:layout_gravity="center_horizontal"
-    android:layout_marginBottom="8dp"
-    android:layout_marginLeft="16dp"
-    android:layout_marginRight="16dp"
+    android:layout_height="272dp"
     android:background="#fff"
     android:elevation="30dp"
     android:padding="20dp"
@@ -15,39 +11,22 @@
     card_view:cardCornerRadius="4dp">
 
     <LinearLayout
-        android:id="@+id/visible"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="120dp"
-        android:visibility="visible"
         android:weightSum="1">
-
-        <android.support.v7.widget.CardView
-            android:layout_width="200dp"
-            android:layout_height="200dp"
-            android:layout_weight="0.93"
-            android:background="@color/switch_thumb_disabled_material_light"
-            android:elevation="30dp">
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:lineSpacingExtra="5dp"
-                android:padding="20dp"
-                android:text="@string/description" />
-        </android.support.v7.widget.CardView>
-    </LinearLayout>
 
     <LinearLayout
         android:id="@+id/invisiblelinearlayout"
         android:layout_width="match_parent"
-        android:layout_height="200dp"
+        android:layout_height="170dp"
         android:layout_marginTop="100dp"
+        android:layout_weight="1"
         android:orientation="vertical">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="50dp"
+            android:duplicateParentState="true"
             android:orientation="horizontal">
 
             <TextView
@@ -55,6 +34,7 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="4"
+                android:duplicateParentState="true"
                 android:padding="15dp"
                 android:text="@string/q7" />
 
@@ -64,6 +44,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:background="@drawable/bg_red"
+                android:duplicateParentState="true"
                 android:text="1" />
 
             <Button
@@ -72,6 +53,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:background="@drawable/bg_red"
+                android:duplicateParentState="true"
                 android:text="2" />
 
             <Button
@@ -80,6 +62,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:background="@drawable/bg_red"
+                android:duplicateParentState="true"
                 android:text="3" />
 
             <Button
@@ -88,6 +71,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:background="@drawable/bg_red"
+                android:duplicateParentState="true"
                 android:text="4" />
 
             <Button
@@ -96,12 +80,14 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:background="@drawable/bg_red"
+                android:duplicateParentState="true"
                 android:text="5" />
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="50dp"
+            android:duplicateParentState="true"
             android:orientation="horizontal">
 
             <TextView
@@ -109,6 +95,7 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="4"
+                android:duplicateParentState="true"
                 android:padding="15dp"
                 android:text="@string/q8" />
 
@@ -118,6 +105,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:background="@color/standardwhite"
+                android:duplicateParentState="true"
                 android:text="1" />
 
             <Button
@@ -126,6 +114,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:background="@color/standardwhite"
+                android:duplicateParentState="true"
                 android:text="2" />
 
             <Button
@@ -134,6 +123,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:background="@color/standardwhite"
+                android:duplicateParentState="true"
                 android:text="3" />
 
             <Button
@@ -142,6 +132,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:background="@color/standardwhite"
+                android:duplicateParentState="true"
                 android:text="4" />
 
             <Button
@@ -150,12 +141,14 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:background="@color/standardwhite"
+                android:duplicateParentState="true"
                 android:text="5" />
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="50dp"
+            android:duplicateParentState="true"
             android:orientation="horizontal">
 
             <TextView
@@ -163,6 +156,7 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="4"
+                android:duplicateParentState="true"
                 android:padding="15dp"
                 android:text="@string/q9" />
 
@@ -172,6 +166,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:background="@color/standardwhite"
+                android:duplicateParentState="true"
                 android:text="1" />
 
             <Button
@@ -180,6 +175,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:background="@color/standardwhite"
+                android:duplicateParentState="true"
                 android:text="2" />
 
             <Button
@@ -188,6 +184,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:background="@color/standardwhite"
+                android:duplicateParentState="true"
                 android:text="3" />
 
             <Button
@@ -196,6 +193,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:background="@color/standardwhite"
+                android:duplicateParentState="true"
                 android:text="4" />
 
             <Button
@@ -204,35 +202,25 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:background="@color/standardwhite"
+                android:duplicateParentState="true"
                 android:text="5" />
         </LinearLayout>
+    </LinearLayout>
 
     </LinearLayout>
 
     <RelativeLayout
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center">
-
-        <ImageView
-            android:id="@+id/list_avatar"
-            android:layout_width="75dp"
-            android:layout_height="75dp"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:layout_marginLeft="66dp"
-            android:layout_marginStart="66dp"
-            android:background="@drawable/ic_launcher"
-            android:scaleType="centerCrop" />
 
         <TextView
             android:id="@+id/list_title"
             android:layout_width="wrap_content"
             android:layout_height="25dp"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentRight="true"
-            android:layout_centerVertical="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="21dp"
+            android:layout_marginStart="21dp"
             android:layout_toEndOf="@+id/list_avatar"
             android:layout_toRightOf="@+id/list_avatar"
             android:background="@color/standardwhite"
@@ -240,6 +228,28 @@
             android:text="Name Of Teachers "
             android:textColor="#000000"
             android:textSize="16sp" />
+
+        <EditText
+            android:id="@+id/editText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/list_avatar"
+            android:layout_alignLeft="@+id/list_title"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignStart="@+id/list_title"
+            android:ems="10"
+            android:hint="Comment"
+            android:inputType="textPersonName" />
+
+        <ImageView
+            android:id="@+id/list_avatar"
+            android:layout_width="75dp"
+            android:layout_height="75dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:background="@drawable/circle"
+            android:scaleType="centerCrop" />
 
     </RelativeLayout>
 
