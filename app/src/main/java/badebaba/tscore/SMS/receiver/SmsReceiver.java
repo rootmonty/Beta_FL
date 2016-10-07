@@ -27,7 +27,7 @@ public class SmsReceiver extends BroadcastReceiver {
                 Object[] pdusObj = (Object[]) bundle.get("pdus");
                 for (Object aPdusObj : pdusObj) {
                     String format = bundle.getString("format");
-                    SmsMessage currentMessage = SmsMessage.createFromPdu((byte[]) aPdusObj, format);
+                    SmsMessage currentMessage = SmsMessage.createFromPdu((byte[]) aPdusObj);
                     String senderAddress = currentMessage.getDisplayOriginatingAddress();
                     String message = currentMessage.getDisplayMessageBody();
 

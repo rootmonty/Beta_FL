@@ -37,6 +37,7 @@ public class Teacher extends Fragment {
         linearLayoutManager = new LinearLayoutManager(getActivity());
         linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         recyclerView2.setAdapter(adapter);
+        recyclerView2.setItemViewCacheSize(20);
         recyclerView2.setHasFixedSize(true);
         recyclerView2.setLayoutManager(linearLayoutManager);
 

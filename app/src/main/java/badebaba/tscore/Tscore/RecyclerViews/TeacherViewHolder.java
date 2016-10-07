@@ -29,13 +29,20 @@ public class TeacherViewHolder extends RecyclerView.ViewHolder {
     TextView Elaborate;
     EditText ElaborateAns;
     Button submit;
-    LinearLayout tll;
+    LinearLayout first, second, third, fourth, fifth, sixth;
     CardView keyboardview;
 
 
     public TeacherViewHolder(final View itemView) {
         super(itemView);
         // mref = new Firebase("https://tscf-b4925.firebaseio.com/teacherfeedback/");
+
+        first = (LinearLayout) itemView.findViewById(R.id.first_tv);
+        second = (LinearLayout) itemView.findViewById(R.id.second_tv);
+        third = (LinearLayout) itemView.findViewById(R.id.third_tv);
+        fourth = (LinearLayout) itemView.findViewById(R.id.fourth_tv);
+        fifth = (LinearLayout) itemView.findViewById(R.id.fifth_tv);
+        sixth = (LinearLayout) itemView.findViewById(R.id.sixth_tv);
 
         keyboardview = (CardView) itemView.findViewById(R.id.teachercardview);
         TeacherName = (TextView) itemView.findViewById(R.id.staffname);

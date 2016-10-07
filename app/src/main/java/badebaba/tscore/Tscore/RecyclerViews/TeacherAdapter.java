@@ -37,12 +37,14 @@ public class TeacherAdapter extends RecyclerView.Adapter<TeacherViewHolder> {
     };
     Context context;
     LayoutInflater inflater;
+    int countercount = 0;
 
     public TeacherAdapter(Context context) {
         this.context = context;
         inflater = LayoutInflater.from(context);
 
     }
+
 
     @Override
     public TeacherViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
@@ -58,7 +60,8 @@ public class TeacherAdapter extends RecyclerView.Adapter<TeacherViewHolder> {
         holder.submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //  if (countercount >= getItemCount()-2) {
+
+                // if (countercount >=6 ) {
                 new AlertDialog.Builder(v.getContext())
                         .setTitle("Submission")
                         .setMessage("Do you really want to submit?")
@@ -70,12 +73,55 @@ public class TeacherAdapter extends RecyclerView.Adapter<TeacherViewHolder> {
                             }
                         })
                         .setNegativeButton(android.R.string.no, null).show();
+            }
+            // else {
+            //  Toast.makeText(v.getContext(),"Fill up the entire columns",Toast.LENGTH_SHORT).show();
+            // }
                 // Toast.makeText(v.getContext(), "Submission for this teacher is done", Toast.LENGTH_SHORT).show();
                 //  Toast.makeText(context, "Move to next", Toast.LENGTH_LONG).show();
+            //      }
+        });
+
+        holder.first.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                countercount++;
+            }
+        });
+        holder.second.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                countercount++;
+            }
+        });
+        holder.third.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                countercount++;
+            }
+        });
+        holder.fourth.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                countercount++;
+            }
+        });
+        holder.fifth.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                countercount++;
+            }
+        });
+        holder.sixth.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                countercount++;
             }
         });
 
+
     }
+
 
     @Override
     public int getItemCount() {

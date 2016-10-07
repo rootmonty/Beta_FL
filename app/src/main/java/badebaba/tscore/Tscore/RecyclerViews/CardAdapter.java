@@ -3,6 +3,8 @@ package badebaba.tscore.Tscore.RecyclerViews;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -10,6 +12,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import badebaba.tscore.DbObj;
 import badebaba.tscore.R;
 
 import static java.lang.StrictMath.abs;
@@ -33,6 +39,7 @@ public class CardAdapter extends RecyclerView.Adapter<CarViewholder> {
 
     public static int CARD_VAL = 1;
     public static int BUTTON_VAL = 2;
+    List<String> dbObjList = new ArrayList<>();
     int countercount = 0;
     String[] ques = {"How would you grade the Teachers",
             "How Did You Find The Study Material",
@@ -69,6 +76,7 @@ public class CardAdapter extends RecyclerView.Adapter<CarViewholder> {
         if (viewType == CARD_VAL) {
             iview = LayoutInflater.from(parent.getContext()).inflate(R.layout.cardview, parent, false);
             viewholder = new GenericViewholder(iview);
+            iview.setTag(viewholder);
             return viewholder;
         } else {
             iview = LayoutInflater.from(parent.getContext()).inflate(R.layout.button, parent, false);
@@ -81,18 +89,19 @@ public class CardAdapter extends RecyclerView.Adapter<CarViewholder> {
     @Override
     public void onBindViewHolder(CarViewholder holder, int position) {
         if (getItemViewType(position) == BUTTON_VAL || position == getItemCount() + 1) {
-            Log.i("DEBUG", "hun" + getItemViewType(position));
-
             ButtonViewHolder buttonViewHolder = (ButtonViewHolder) holder;
-            Log.i("DEBUG", "" + getItemViewType(position));
-
-            Log.i("DEBUG", "hun" + getItemViewType(position));
-
             buttonViewHolder.bottombutton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
 
-                    if (countercount >= getItemCount() - 2) {
+                    int countt = 0;
+                    Log.i("Checking the database", dbObjList.toString());
+                    for (int i = 0; i < dbObjList.size(); i++) {
+                        if (dbObjList.get(i).equals("") || dbObjList.get(i).equals("0"))
+                            countt++;
+                    }
+                    Log.i("Checking the database", countt + "");
+                    if (countt == 0) {
                         new AlertDialog.Builder(view.getContext())
                                 .setTitle("Title")
                                 .setMessage("Do you really want to submit?")
@@ -100,52 +109,28 @@ public class CardAdapter extends RecyclerView.Adapter<CarViewholder> {
                                 .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
 
                                     public void onClick(DialogInterface dialog, int whichButton) {
-                                        Toast.makeText(context, "Yaay", Toast.LENGTH_SHORT).show();
+                                        Toast.makeText(context, "Submitted your response", Toast.LENGTH_SHORT).show();
                                     }
                                 })
                                 .setNegativeButton(android.R.string.no, null).show();
-                        Toast.makeText(view.getContext(), " DATA Sent with the Comment", Toast.LENGTH_SHORT).show();
-                        Toast.makeText(context, "Button Clicked", Toast.LENGTH_LONG).show();
-                    } else
-                        Toast.makeText(view.getContext(), "Still :" + abs(countercount - getItemCount()) + "left to submit", Toast.LENGTH_SHORT).show();
+                    } else {
+                        Toast.makeText(view.getContext(), "Still left to submit", Toast.LENGTH_SHORT).show();
+                    }
                 }
             });
         }
 
         if (getItemViewType(position) == CARD_VAL && position <= getItemCount()) {
             Log.i("DEBUG", "" + getItemViewType(position));
-
+            // holder = null;
             GenericViewholder genericViewholder = (GenericViewholder) holder;
-            // if (genericViewholder.itemView == null)
-            //  genericViewholder.ques.setText(ques[position]);
-            //  else {
-            genericViewholder.ques.setText(ques[position]);
-            genericViewholder.counter.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
+            dbObjList.add(position, genericViewholder.database);
+            if (genericViewholder.count == 1) {
                     countercount++;
-
+                Log.i("THE value of count :", countercount + "");
                 }
-            });
-            // genericViewholder.tv1.setBackgroundResource(R.color.standardwhite);
-            // genericViewholder.tv2.setBackgroundResource(R.color.standardwhite);
-            // genericViewholder.tv3.setBackgroundResource(R.color.standardwhite);
-            //  genericViewholder.tv5.setBackgroundResource(R.color.standardwhite);
-            //  genericViewholder.tv4.setBackgroundResource(R.color.standardwhite);
-
-            // }
+            genericViewholder.ques.setText(ques[position]);
         }
-        // else
-        // holder.bottomb.setText("SUBMIT");
-
-
-      /*holder.tv1.setOnClickListener(clicklistener);
-        holder.tv2.setOnClickListener(clicklistener);
-        holder.tv3.setOnClickListener(clicklistener);
-        holder.tv4.setOnClickListener(clicklistener);
-        holder.tv5.setOnClickListener(clicklistener);
-        */
-
     }
 
     @Override
