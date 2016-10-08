@@ -94,28 +94,6 @@ public class CardAdapter extends RecyclerView.Adapter<CarViewholder> {
                 @Override
                 public void onClick(View view) {
 
-                    int countt = 0;
-                    Log.i("Checking the database", dbObjList.toString());
-                    for (int i = 0; i < dbObjList.size(); i++) {
-                        if (dbObjList.get(i).equals("") || dbObjList.get(i).equals("0"))
-                            countt++;
-                    }
-                    Log.i("Checking the database", countt + "");
-                    if (countt == 0) {
-                        new AlertDialog.Builder(view.getContext())
-                                .setTitle("Title")
-                                .setMessage("Do you really want to submit?")
-                                .setIcon(android.R.drawable.ic_dialog_alert)
-                                .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
-
-                                    public void onClick(DialogInterface dialog, int whichButton) {
-                                        Toast.makeText(context, "Submitted your response", Toast.LENGTH_SHORT).show();
-                                    }
-                                })
-                                .setNegativeButton(android.R.string.no, null).show();
-                    } else {
-                        Toast.makeText(view.getContext(), "Still left to submit", Toast.LENGTH_SHORT).show();
-                    }
                 }
             });
         }

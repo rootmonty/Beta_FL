@@ -1,20 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:fillViewport="true">
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:card_view="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginLeft="7dp"
     android:background="@color/standardwhite"
     android:orientation="vertical">
 
+
     <android.support.v7.widget.CardView
-        android:id="@+id/card_view1"
+        android:id="@+id/card_view01"
         android:layout_width="350dp"
         android:layout_height="121dp"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="10dp"
         android:padding="5dp"
-        card_view:cardCornerRadius="6dp">
+        card_view:cardCornerRadius="6dp"
+        card_view:cardElevation="12dp">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -27,12 +33,12 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    android:id="@+id/setQuestion"
+                    android:id="@+id/setQuestion01"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="3"
                     android:padding="10dp"
-                    android:text="Write your question here ?" />
+                    android:text="@+string/ques1" />
 
             </LinearLayout>
         </LinearLayout>
@@ -118,13 +124,14 @@
     </android.support.v7.widget.CardView>
 
     <android.support.v7.widget.CardView
-        android:id="@+id/card_view1"
+        android:id="@+id/card_view2"
         android:layout_width="350dp"
         android:layout_height="121dp"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="10dp"
         android:padding="5dp"
-        card_view:cardCornerRadius="6dp">
+        card_view:cardCornerRadius="6dp"
+        card_view:cardElevation="12dp">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -137,12 +144,12 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    android:id="@+id/setQuestion"
+                    android:id="@+id/setQuestion2"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="3"
                     android:padding="10dp"
-                    android:text="Write your question here ?" />
+                    android:text="@+string/ques2" />
 
             </LinearLayout>
         </LinearLayout>
@@ -156,7 +163,7 @@
 
 
             <TextView
-                android:id="@+id/one"
+                android:id="@+id/one2"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -169,7 +176,7 @@
                 android:textAlignment="center" />
 
             <TextView
-                android:id="@+id/two"
+                android:id="@+id/two2"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -181,7 +188,7 @@
                 android:textAlignment="center" />
 
             <TextView
-                android:id="@+id/three"
+                android:id="@+id/three2"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -193,7 +200,7 @@
                 android:textAlignment="center" />
 
             <TextView
-                android:id="@+id/four"
+                android:id="@+id/four2"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -204,7 +211,7 @@
                 android:textAlignment="center" />
 
             <TextView
-                android:id="@+id/five"
+                android:id="@+id/five2"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -217,119 +224,7 @@
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/layout1"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="100dp"
-            android:orientation="vertical"
-
-            >
-
-
-        </LinearLayout>
-    </android.support.v7.widget.CardView>
-
-    <android.support.v7.widget.CardView
-        android:id="@+id/card_view1"
-        android:layout_width="350dp"
-        android:layout_height="121dp"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="10dp"
-        android:padding="5dp"
-        card_view:cardCornerRadius="6dp">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:id="@+id/setQuestion"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="3"
-                    android:padding="10dp"
-                    android:text="Write your question here ?" />
-
-            </LinearLayout>
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="150dp"
-            android:layout_height="30dp"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="60dp"
-            android:orientation="horizontal">
-
-
-            <TextView
-                android:id="@+id/one"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:background="@drawable/bg_red"
-                android:contextClickable="false"
-                android:ellipsize="middle"
-                android:focusableInTouchMode="true"
-                android:padding="5dp"
-                android:text="1"
-                android:textAlignment="center" />
-
-            <TextView
-                android:id="@+id/two"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:background="@drawable/bg_red"
-                android:focusableInTouchMode="true"
-                android:padding="5dp"
-                android:shadowColor="@color/standardwhite"
-                android:text="2"
-                android:textAlignment="center" />
-
-            <TextView
-                android:id="@+id/three"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:background="@drawable/bg_red"
-                android:focusableInTouchMode="true"
-                android:padding="5dp"
-                android:shadowColor="@color/standardwhite"
-                android:text="3"
-                android:textAlignment="center" />
-
-            <TextView
-                android:id="@+id/four"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:background="@drawable/bg_red"
-                android:padding="5dp"
-                android:shadowColor="@color/standardwhite"
-                android:text="4"
-                android:textAlignment="center" />
-
-            <TextView
-                android:id="@+id/five"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:background="@drawable/bg_red"
-                android:focusableInTouchMode="true"
-                android:padding="5dp"
-                android:shadowColor="@color/standardwhite"
-                android:text="5"
-                android:textAlignment="center" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/layout1"
+            android:id="@+id/layout2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="100dp"
@@ -342,13 +237,14 @@
     </android.support.v7.widget.CardView>
 
     <android.support.v7.widget.CardView
-        android:id="@+id/card_view1"
+        android:id="@+id/card_view3"
         android:layout_width="350dp"
         android:layout_height="121dp"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="10dp"
         android:padding="5dp"
-        card_view:cardCornerRadius="6dp">
+        card_view:cardCornerRadius="6dp"
+        card_view:cardElevation="15dp">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -361,12 +257,12 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    android:id="@+id/setQuestion"
+                    android:id="@+id/setQuestion3"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="3"
                     android:padding="10dp"
-                    android:text="Write your question here ?" />
+                    android:text="@+string/ques3" />
 
             </LinearLayout>
         </LinearLayout>
@@ -380,7 +276,7 @@
 
 
             <TextView
-                android:id="@+id/one"
+                android:id="@+id/one3"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -393,7 +289,7 @@
                 android:textAlignment="center" />
 
             <TextView
-                android:id="@+id/two"
+                android:id="@+id/two3"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -405,7 +301,7 @@
                 android:textAlignment="center" />
 
             <TextView
-                android:id="@+id/three"
+                android:id="@+id/three3"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -417,7 +313,7 @@
                 android:textAlignment="center" />
 
             <TextView
-                android:id="@+id/four"
+                android:id="@+id/four3"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -428,7 +324,7 @@
                 android:textAlignment="center" />
 
             <TextView
-                android:id="@+id/five"
+                android:id="@+id/five3"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -441,7 +337,7 @@
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/layout1"
+            android:id="@+id/layout3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="100dp"
@@ -454,13 +350,14 @@
     </android.support.v7.widget.CardView>
 
     <android.support.v7.widget.CardView
-        android:id="@+id/card_view1"
+        android:id="@+id/card_view4"
         android:layout_width="350dp"
         android:layout_height="121dp"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="10dp"
         android:padding="5dp"
-        card_view:cardCornerRadius="6dp">
+        card_view:cardCornerRadius="6dp"
+        card_view:cardElevation="15dp">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -473,12 +370,12 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    android:id="@+id/setQuestion"
+                    android:id="@+id/setQuestion4"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="3"
                     android:padding="10dp"
-                    android:text="Write your question here ?" />
+                    android:text="@+string/ques4" />
 
             </LinearLayout>
         </LinearLayout>
@@ -492,7 +389,7 @@
 
 
             <TextView
-                android:id="@+id/one"
+                android:id="@+id/one4"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -505,7 +402,7 @@
                 android:textAlignment="center" />
 
             <TextView
-                android:id="@+id/two"
+                android:id="@+id/two4"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -517,7 +414,7 @@
                 android:textAlignment="center" />
 
             <TextView
-                android:id="@+id/three"
+                android:id="@+id/three4"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -529,7 +426,7 @@
                 android:textAlignment="center" />
 
             <TextView
-                android:id="@+id/four"
+                android:id="@+id/four4"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -540,7 +437,7 @@
                 android:textAlignment="center" />
 
             <TextView
-                android:id="@+id/five"
+                android:id="@+id/five4"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -553,7 +450,7 @@
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/layout1"
+            android:id="@+id/layout4"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="100dp"
@@ -566,13 +463,14 @@
     </android.support.v7.widget.CardView>
 
     <android.support.v7.widget.CardView
-        android:id="@+id/card_view1"
+        android:id="@+id/card_view5"
         android:layout_width="350dp"
         android:layout_height="121dp"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="10dp"
         android:padding="5dp"
-        card_view:cardCornerRadius="6dp">
+        card_view:cardCornerRadius="6dp"
+        card_view:cardElevation="15dp">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -585,12 +483,12 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    android:id="@+id/setQuestion"
+                    android:id="@+id/setQuestion5"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="3"
                     android:padding="10dp"
-                    android:text="Write your question here ?" />
+                    android:text="@+string/ques5" />
 
             </LinearLayout>
         </LinearLayout>
@@ -604,7 +502,7 @@
 
 
             <TextView
-                android:id="@+id/one"
+                android:id="@+id/one5"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -617,7 +515,7 @@
                 android:textAlignment="center" />
 
             <TextView
-                android:id="@+id/two"
+                android:id="@+id/two5"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -629,7 +527,7 @@
                 android:textAlignment="center" />
 
             <TextView
-                android:id="@+id/three"
+                android:id="@+id/three5"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -641,7 +539,7 @@
                 android:textAlignment="center" />
 
             <TextView
-                android:id="@+id/four"
+                android:id="@+id/four5"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -652,7 +550,7 @@
                 android:textAlignment="center" />
 
             <TextView
-                android:id="@+id/five"
+                android:id="@+id/five5"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -665,7 +563,7 @@
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/layout1"
+            android:id="@+id/layout5"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="100dp"
@@ -678,13 +576,14 @@
     </android.support.v7.widget.CardView>
 
     <android.support.v7.widget.CardView
-        android:id="@+id/card_view1"
+        android:id="@+id/card_view6"
         android:layout_width="350dp"
         android:layout_height="121dp"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="10dp"
         android:padding="5dp"
-        card_view:cardCornerRadius="6dp">
+        card_view:cardCornerRadius="6dp"
+        card_view:cardElevation="16dp">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -697,12 +596,12 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    android:id="@+id/setQuestion"
+                    android:id="@+id/setQuestion6"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="3"
                     android:padding="10dp"
-                    android:text="Write your question here ?" />
+                    android:text="@+string/ques6" />
 
             </LinearLayout>
         </LinearLayout>
@@ -716,7 +615,7 @@
 
 
             <TextView
-                android:id="@+id/one"
+                android:id="@+id/one6"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -729,7 +628,7 @@
                 android:textAlignment="center" />
 
             <TextView
-                android:id="@+id/two"
+                android:id="@+id/two6"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -741,7 +640,7 @@
                 android:textAlignment="center" />
 
             <TextView
-                android:id="@+id/three"
+                android:id="@+id/three6"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -753,7 +652,7 @@
                 android:textAlignment="center" />
 
             <TextView
-                android:id="@+id/four"
+                android:id="@+id/four6"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -764,7 +663,7 @@
                 android:textAlignment="center" />
 
             <TextView
-                android:id="@+id/five"
+                android:id="@+id/five6"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -777,7 +676,7 @@
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/layout1"
+            android:id="@+id/layout6"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="100dp"
@@ -790,13 +689,14 @@
     </android.support.v7.widget.CardView>
 
     <android.support.v7.widget.CardView
-        android:id="@+id/card_view1"
+        android:id="@+id/card_view7"
         android:layout_width="350dp"
         android:layout_height="121dp"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="10dp"
         android:padding="5dp"
-        card_view:cardCornerRadius="6dp">
+        card_view:cardCornerRadius="6dp"
+        card_view:cardElevation="15dp">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -809,12 +709,12 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    android:id="@+id/setQuestion"
+                    android:id="@+id/setQuestion7"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="3"
                     android:padding="10dp"
-                    android:text="Write your question here ?" />
+                    android:text="@+string/ques7" />
 
             </LinearLayout>
         </LinearLayout>
@@ -828,7 +728,7 @@
 
 
             <TextView
-                android:id="@+id/one"
+                android:id="@+id/one7"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -841,7 +741,7 @@
                 android:textAlignment="center" />
 
             <TextView
-                android:id="@+id/two"
+                android:id="@+id/two7"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -853,7 +753,7 @@
                 android:textAlignment="center" />
 
             <TextView
-                android:id="@+id/three"
+                android:id="@+id/three7"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -865,7 +765,7 @@
                 android:textAlignment="center" />
 
             <TextView
-                android:id="@+id/four"
+                android:id="@+id/four7"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -876,7 +776,7 @@
                 android:textAlignment="center" />
 
             <TextView
-                android:id="@+id/five"
+                android:id="@+id/five7"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -889,7 +789,7 @@
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/layout1"
+            android:id="@+id/layout7"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="100dp"
@@ -902,13 +802,14 @@
     </android.support.v7.widget.CardView>
 
     <android.support.v7.widget.CardView
-        android:id="@+id/card_view1"
+        android:id="@+id/card_view8"
         android:layout_width="350dp"
         android:layout_height="121dp"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="10dp"
         android:padding="5dp"
-        card_view:cardCornerRadius="6dp">
+        card_view:cardCornerRadius="6dp"
+        card_view:cardElevation="15dp">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -921,12 +822,12 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    android:id="@+id/setQuestion"
+                    android:id="@+id/setQuestion8"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="3"
                     android:padding="10dp"
-                    android:text="Write your question here ?" />
+                    android:text="@+string/ques8" />
 
             </LinearLayout>
         </LinearLayout>
@@ -940,7 +841,7 @@
 
 
             <TextView
-                android:id="@+id/one"
+                android:id="@+id/one8"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -953,7 +854,7 @@
                 android:textAlignment="center" />
 
             <TextView
-                android:id="@+id/two"
+                android:id="@+id/two8"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -965,7 +866,7 @@
                 android:textAlignment="center" />
 
             <TextView
-                android:id="@+id/three"
+                android:id="@+id/three8"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -977,7 +878,7 @@
                 android:textAlignment="center" />
 
             <TextView
-                android:id="@+id/four"
+                android:id="@+id/four8"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -988,7 +889,7 @@
                 android:textAlignment="center" />
 
             <TextView
-                android:id="@+id/five"
+                android:id="@+id/five8"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -1001,7 +902,7 @@
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/layout1"
+            android:id="@+id/layout8"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="100dp"
@@ -1014,13 +915,14 @@
     </android.support.v7.widget.CardView>
 
     <android.support.v7.widget.CardView
-        android:id="@+id/card_view1"
+        android:id="@+id/card_view9"
         android:layout_width="350dp"
         android:layout_height="121dp"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="10dp"
         android:padding="5dp"
-        card_view:cardCornerRadius="6dp">
+        card_view:cardCornerRadius="6dp"
+        card_view:cardElevation="15dp">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -1033,12 +935,12 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    android:id="@+id/setQuestion"
+                    android:id="@+id/setQuestion9"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="3"
                     android:padding="10dp"
-                    android:text="Write your question here ?" />
+                    android:text="@+string/ques9" />
 
             </LinearLayout>
         </LinearLayout>
@@ -1052,7 +954,7 @@
 
 
             <TextView
-                android:id="@+id/one"
+                android:id="@+id/one9"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -1065,7 +967,7 @@
                 android:textAlignment="center" />
 
             <TextView
-                android:id="@+id/two"
+                android:id="@+id/two9"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -1077,7 +979,7 @@
                 android:textAlignment="center" />
 
             <TextView
-                android:id="@+id/three"
+                android:id="@+id/three9"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -1089,7 +991,7 @@
                 android:textAlignment="center" />
 
             <TextView
-                android:id="@+id/four"
+                android:id="@+id/four9"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -1100,7 +1002,7 @@
                 android:textAlignment="center" />
 
             <TextView
-                android:id="@+id/five"
+                android:id="@+id/five9"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -1113,7 +1015,7 @@
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/layout1"
+            android:id="@+id/layout9"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="100dp"
@@ -1126,13 +1028,14 @@
     </android.support.v7.widget.CardView>
 
     <android.support.v7.widget.CardView
-        android:id="@+id/card_view1"
+        android:id="@+id/card_view10"
         android:layout_width="350dp"
         android:layout_height="121dp"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="10dp"
         android:padding="5dp"
-        card_view:cardCornerRadius="6dp">
+        card_view:cardCornerRadius="6dp"
+        card_view:cardElevation="14dp">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -1145,12 +1048,12 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    android:id="@+id/setQuestion"
+                    android:id="@+id/setQuestion10"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="3"
                     android:padding="10dp"
-                    android:text="Write your question here ?" />
+                    android:text="@+string/ques10" />
 
             </LinearLayout>
         </LinearLayout>
@@ -1164,7 +1067,7 @@
 
 
             <TextView
-                android:id="@+id/one"
+                android:id="@+id/one10"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -1177,7 +1080,7 @@
                 android:textAlignment="center" />
 
             <TextView
-                android:id="@+id/two"
+                android:id="@+id/two10"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -1189,7 +1092,7 @@
                 android:textAlignment="center" />
 
             <TextView
-                android:id="@+id/three"
+                android:id="@+id/three10"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -1201,7 +1104,7 @@
                 android:textAlignment="center" />
 
             <TextView
-                android:id="@+id/four"
+                android:id="@+id/four10"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -1212,7 +1115,7 @@
                 android:textAlignment="center" />
 
             <TextView
-                android:id="@+id/five"
+                android:id="@+id/five10"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -1225,7 +1128,7 @@
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/layout1"
+            android:id="@+id/layout10"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="100dp"
@@ -1238,13 +1141,14 @@
     </android.support.v7.widget.CardView>
 
     <android.support.v7.widget.CardView
-        android:id="@+id/card_view1"
+        android:id="@+id/card_view11"
         android:layout_width="350dp"
         android:layout_height="121dp"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="10dp"
         android:padding="5dp"
-        card_view:cardCornerRadius="6dp">
+        card_view:cardCornerRadius="6dp"
+        card_view:cardElevation="15dp">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -1257,12 +1161,12 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    android:id="@+id/setQuestion"
+                    android:id="@+id/setQuestion11"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="3"
                     android:padding="10dp"
-                    android:text="Write your question here ?" />
+                    android:text="@+string/ques11" />
 
             </LinearLayout>
         </LinearLayout>
@@ -1276,7 +1180,7 @@
 
 
             <TextView
-                android:id="@+id/one"
+                android:id="@+id/one11"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -1289,7 +1193,7 @@
                 android:textAlignment="center" />
 
             <TextView
-                android:id="@+id/two"
+                android:id="@+id/two11"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -1301,7 +1205,7 @@
                 android:textAlignment="center" />
 
             <TextView
-                android:id="@+id/three"
+                android:id="@+id/three11"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -1313,7 +1217,7 @@
                 android:textAlignment="center" />
 
             <TextView
-                android:id="@+id/four"
+                android:id="@+id/four11"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -1324,7 +1228,7 @@
                 android:textAlignment="center" />
 
             <TextView
-                android:id="@+id/five"
+                android:id="@+id/five11"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -1337,7 +1241,7 @@
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/layout1"
+            android:id="@+id/layout11"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="100dp"
@@ -1350,13 +1254,14 @@
     </android.support.v7.widget.CardView>
 
     <android.support.v7.widget.CardView
-        android:id="@+id/card_view1"
+        android:id="@+id/card_view12"
         android:layout_width="350dp"
         android:layout_height="121dp"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="10dp"
         android:padding="5dp"
-        card_view:cardCornerRadius="6dp">
+        card_view:cardCornerRadius="6dp"
+        card_view:cardElevation="15dp">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -1369,12 +1274,12 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    android:id="@+id/setQuestion"
+                    android:id="@+id/setQuestion12"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="3"
                     android:padding="10dp"
-                    android:text="Write your question here ?" />
+                    android:text="@+string/ques12" />
 
             </LinearLayout>
         </LinearLayout>
@@ -1388,7 +1293,7 @@
 
 
             <TextView
-                android:id="@+id/one"
+                android:id="@+id/one12"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -1401,7 +1306,7 @@
                 android:textAlignment="center" />
 
             <TextView
-                android:id="@+id/two"
+                android:id="@+id/two12"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -1413,7 +1318,7 @@
                 android:textAlignment="center" />
 
             <TextView
-                android:id="@+id/three"
+                android:id="@+id/three12"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -1425,7 +1330,7 @@
                 android:textAlignment="center" />
 
             <TextView
-                android:id="@+id/four"
+                android:id="@+id/four12"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -1436,7 +1341,7 @@
                 android:textAlignment="center" />
 
             <TextView
-                android:id="@+id/five"
+                android:id="@+id/five12"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -1449,7 +1354,7 @@
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/layout1"
+            android:id="@+id/layout12"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="100dp"
@@ -1462,13 +1367,14 @@
     </android.support.v7.widget.CardView>
 
     <android.support.v7.widget.CardView
-        android:id="@+id/card_view1"
+        android:id="@+id/card_view13"
         android:layout_width="350dp"
         android:layout_height="121dp"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="10dp"
         android:padding="5dp"
-        card_view:cardCornerRadius="6dp">
+        card_view:cardCornerRadius="6dp"
+        card_view:cardElevation="3dp">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -1481,12 +1387,12 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    android:id="@+id/setQuestion"
+                    android:id="@+id/setQuestion13"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="3"
                     android:padding="10dp"
-                    android:text="Write your question here ?" />
+                    android:text="@+string/ques13" />
 
             </LinearLayout>
         </LinearLayout>
@@ -1500,7 +1406,7 @@
 
 
             <TextView
-                android:id="@+id/one"
+                android:id="@+id/one13"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -1513,7 +1419,7 @@
                 android:textAlignment="center" />
 
             <TextView
-                android:id="@+id/two"
+                android:id="@+id/two13"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -1525,7 +1431,7 @@
                 android:textAlignment="center" />
 
             <TextView
-                android:id="@+id/three"
+                android:id="@+id/three13"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -1537,7 +1443,7 @@
                 android:textAlignment="center" />
 
             <TextView
-                android:id="@+id/four"
+                android:id="@+id/four13"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -1548,7 +1454,7 @@
                 android:textAlignment="center" />
 
             <TextView
-                android:id="@+id/five"
+                android:id="@+id/five13"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -1561,7 +1467,7 @@
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/layout1"
+            android:id="@+id/layout13"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="100dp"
@@ -1574,13 +1480,14 @@
     </android.support.v7.widget.CardView>
 
     <android.support.v7.widget.CardView
-        android:id="@+id/card_view1"
+        android:id="@+id/card_view14"
         android:layout_width="350dp"
         android:layout_height="121dp"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="10dp"
         android:padding="5dp"
-        card_view:cardCornerRadius="6dp">
+        card_view:cardCornerRadius="6dp"
+        card_view:cardElevation="16dp">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -1593,12 +1500,12 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    android:id="@+id/setQuestion"
+                    android:id="@+id/setQuestion14"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="3"
                     android:padding="10dp"
-                    android:text="Write your question here ?" />
+                    android:text="@+string/ques14" />
 
             </LinearLayout>
         </LinearLayout>
@@ -1612,7 +1519,7 @@
 
 
             <TextView
-                android:id="@+id/one"
+                android:id="@+id/one14"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -1625,7 +1532,7 @@
                 android:textAlignment="center" />
 
             <TextView
-                android:id="@+id/two"
+                android:id="@+id/two14"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -1637,7 +1544,7 @@
                 android:textAlignment="center" />
 
             <TextView
-                android:id="@+id/three"
+                android:id="@+id/three14"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -1649,7 +1556,7 @@
                 android:textAlignment="center" />
 
             <TextView
-                android:id="@+id/four"
+                android:id="@+id/four14"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -1660,7 +1567,7 @@
                 android:textAlignment="center" />
 
             <TextView
-                android:id="@+id/five"
+                android:id="@+id/five14"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -1673,7 +1580,7 @@
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/layout1"
+            android:id="@+id/layout14"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="100dp"
@@ -1686,13 +1593,14 @@
     </android.support.v7.widget.CardView>
 
     <android.support.v7.widget.CardView
-        android:id="@+id/card_view1"
+        android:id="@+id/card_view15"
         android:layout_width="350dp"
         android:layout_height="121dp"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="10dp"
         android:padding="5dp"
-        card_view:cardCornerRadius="6dp">
+        card_view:cardCornerRadius="6dp"
+        card_view:cardElevation="14dp">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -1705,12 +1613,12 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    android:id="@+id/setQuestion"
+                    android:id="@+id/setQuestion15"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="3"
                     android:padding="10dp"
-                    android:text="Write your question here ?" />
+                    android:text="@+string/ques15" />
 
             </LinearLayout>
         </LinearLayout>
@@ -1724,7 +1632,7 @@
 
 
             <TextView
-                android:id="@+id/one"
+                android:id="@+id/one15"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -1737,7 +1645,7 @@
                 android:textAlignment="center" />
 
             <TextView
-                android:id="@+id/two"
+                android:id="@+id/two15"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -1749,7 +1657,7 @@
                 android:textAlignment="center" />
 
             <TextView
-                android:id="@+id/three"
+                android:id="@+id/three15"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -1761,7 +1669,7 @@
                 android:textAlignment="center" />
 
             <TextView
-                android:id="@+id/four"
+                android:id="@+id/four15"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -1772,7 +1680,7 @@
                 android:textAlignment="center" />
 
             <TextView
-                android:id="@+id/five"
+                android:id="@+id/five15"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -1785,7 +1693,7 @@
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/layout1"
+            android:id="@+id/layout15"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="100dp"
@@ -1798,13 +1706,14 @@
     </android.support.v7.widget.CardView>
 
     <android.support.v7.widget.CardView
-        android:id="@+id/card_view1"
+        android:id="@+id/card_view16"
         android:layout_width="350dp"
         android:layout_height="121dp"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="10dp"
         android:padding="5dp"
-        card_view:cardCornerRadius="6dp">
+        card_view:cardCornerRadius="6dp"
+        card_view:cardElevation="14dp">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -1817,12 +1726,12 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    android:id="@+id/setQuestion"
+                    android:id="@+id/setQuestion16"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="3"
                     android:padding="10dp"
-                    android:text="Write your question here ?" />
+                    android:text="@+string/ques16" />
 
             </LinearLayout>
         </LinearLayout>
@@ -1836,7 +1745,7 @@
 
 
             <TextView
-                android:id="@+id/one"
+                android:id="@+id/one16"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -1849,7 +1758,7 @@
                 android:textAlignment="center" />
 
             <TextView
-                android:id="@+id/two"
+                android:id="@+id/two16"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -1861,7 +1770,7 @@
                 android:textAlignment="center" />
 
             <TextView
-                android:id="@+id/three"
+                android:id="@+id/three16"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -1873,7 +1782,7 @@
                 android:textAlignment="center" />
 
             <TextView
-                android:id="@+id/four"
+                android:id="@+id/four16"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -1884,7 +1793,7 @@
                 android:textAlignment="center" />
 
             <TextView
-                android:id="@+id/five"
+                android:id="@+id/five16"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -1897,7 +1806,7 @@
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/layout1"
+            android:id="@+id/layout16"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="100dp"
@@ -1910,13 +1819,14 @@
     </android.support.v7.widget.CardView>
 
     <android.support.v7.widget.CardView
-        android:id="@+id/card_view1"
+        android:id="@+id/card_view17"
         android:layout_width="350dp"
         android:layout_height="121dp"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="10dp"
         android:padding="5dp"
-        card_view:cardCornerRadius="6dp">
+        card_view:cardCornerRadius="6dp"
+        card_view:cardElevation="15dp">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -1929,12 +1839,12 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    android:id="@+id/setQuestion"
+                    android:id="@+id/setQuestion17"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="3"
                     android:padding="10dp"
-                    android:text="Write your question here ?" />
+                    android:text="@+string/ques17" />
 
             </LinearLayout>
         </LinearLayout>
@@ -1948,7 +1858,7 @@
 
 
             <TextView
-                android:id="@+id/one"
+                android:id="@+id/one17"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -1961,7 +1871,7 @@
                 android:textAlignment="center" />
 
             <TextView
-                android:id="@+id/two"
+                android:id="@+id/two17"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -1973,7 +1883,7 @@
                 android:textAlignment="center" />
 
             <TextView
-                android:id="@+id/three"
+                android:id="@+id/three17"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -1985,7 +1895,7 @@
                 android:textAlignment="center" />
 
             <TextView
-                android:id="@+id/four"
+                android:id="@+id/four17"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -1996,7 +1906,7 @@
                 android:textAlignment="center" />
 
             <TextView
-                android:id="@+id/five"
+                android:id="@+id/five17"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -2009,7 +1919,7 @@
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/layout1"
+            android:id="@+id/layout17"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="100dp"
@@ -2020,5 +1930,57 @@
 
         </LinearLayout>
     </android.support.v7.widget.CardView>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal">
+
+        <android.support.v7.widget.CardView
+            android:id="@+id/cardView"
+            android:layout_width="350dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="34dp"
+            card_view:cardElevation="21dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <Button
+                    android:id="@+id/button"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_below="@+id/comment"
+                    android:background="@color/standardwhite"
+                    android:text="submit" />
+
+                <TextView
+                    android:id="@+id/textView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:layout_centerHorizontal="true"
+                    android:text="Any further Suggestions " />
+
+                <EditText
+                    android:id="@+id/comment"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_below="@+id/textView"
+                    android:hint="Comment"
+                    android:inputType="text"
+                    android:textColorHint="@color/standardwhite" />
+
+            </RelativeLayout>
+        </android.support.v7.widget.CardView>
+    </RelativeLayout>
+
 
 </LinearLayout>
+</ScrollView>

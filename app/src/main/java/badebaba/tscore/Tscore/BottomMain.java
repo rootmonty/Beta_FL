@@ -17,6 +17,7 @@ import android.widget.Toast;
 import com.roughike.bottombar.BottomBar;
 import com.roughike.bottombar.OnTabSelectListener;
 
+import badebaba.tscore.Bruteforce.Generic;
 import badebaba.tscore.R;
 
 
@@ -53,7 +54,8 @@ public class BottomMain extends AppCompatActivity {
         Fragment fragment = null;
         switch (tabId) {
             case R.id.general:
-                fragment = new General();
+                //fragment = new General();
+                fragment = new Generic();
                 break;
             case R.id.staff:
                 fragment = new Staff();

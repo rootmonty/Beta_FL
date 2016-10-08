@@ -24,6 +24,7 @@ import android.widget.Toast;
 import com.roughike.bottombar.BottomBar;
 import com.roughike.bottombar.OnTabSelectListener;
 
+import badebaba.tscore.Bruteforce.Generic;
 import badebaba.tscore.SMS.SmsActivity;
 import badebaba.tscore.SMS.helper.PrefManager;
 import badebaba.tscore.Tscore.General;
@@ -126,8 +127,8 @@ public class MainActivity extends AppCompatActivity {
                 });
                 AlertDialog alertDialog = alertDialogBuilder.create();
                 alertDialog.show();
-                fragment = new General();
-                //  fragment = new General();
+                // fragment = new General();
+                fragment = new Generic();
                 break;
             case R.id.staff:
                 AlertDialog.Builder alertDialogBuilder1 = new AlertDialog.Builder(this);

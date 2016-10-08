@@ -19,9 +19,6 @@ public class GenericViewholder extends CarViewholder {
     TextView ques;
     TextView tv1, tv2, tv3, tv4, tv5;
     LinearLayout counter;
-    CardView cardview1;
-    // Firebase mref;
-    // Button bottomb;
     int count = 0;
     String database = new String();
 
@@ -36,7 +33,6 @@ public class GenericViewholder extends CarViewholder {
         tv3 = (TextView) itemView.findViewById(R.id.three);
         tv4 = (TextView) itemView.findViewById(R.id.four);
         tv5 = (TextView) itemView.findViewById(R.id.five);
-        // bottomb = (Button) itemView.findViewById(R.id.button);
 
         View.OnClickListener clicklistener = new View.OnClickListener() {
             @Override
@@ -53,8 +49,6 @@ public class GenericViewholder extends CarViewholder {
 
 
                         tv1.setBackgroundResource(R.drawable.fill);
-                        count = 1;
-                        database = "1";
                         break;
                     case R.id.two:
                         if (tv4.getBackground() != null || tv1.getBackground() != null || tv3.getBackground() != null
@@ -66,8 +60,6 @@ public class GenericViewholder extends CarViewholder {
                         }
 
                         tv2.setBackgroundResource(R.drawable.fill);
-                        count = 1;
-                        database = "2";
                         break;
                     case R.id.three:
                         if (tv1.getBackground() != null || tv2.getBackground() != null || tv4.getBackground() != null
@@ -79,8 +71,6 @@ public class GenericViewholder extends CarViewholder {
                         }
 
                         tv3.setBackgroundResource(R.drawable.fill);
-                        count = 1;
-                        database = "3";
                         break;
                     case R.id.four:
                         if (tv1.getBackground() != null || tv2.getBackground() != null || tv3.getBackground() != null
@@ -92,9 +82,6 @@ public class GenericViewholder extends CarViewholder {
                         }
 
                         tv4.setBackgroundResource(R.drawable.fill);
-                        count = 1;
-                        database = "4";
-
                         break;
                     case R.id.five:
                         if (tv4.getBackground() != null || tv2.getBackground() != null || tv3.getBackground() != null
@@ -106,24 +93,14 @@ public class GenericViewholder extends CarViewholder {
                         }
 
                         tv5.setBackgroundResource(R.drawable.fill);
-                        count = 1;
-                        database = "5";
-                        // b5.setBackgroundColor(Color.BLUE);
                         break;
                     default:
-                        count = 0;
-                        database = "0";
 
                 }
                 //Toast.makeText(view.getContext(), "Rating set : " + value.getRating(), Toast.LENGTH_SHORT).show();
 
             }
         };
-
-        if (tv1.getBackground() != null || tv2.getBackground() != null || tv3.getBackground() != null || tv4.getBackground() != null || tv5.getBackground() != null) {
-            count = 1;
-        } else
-            count = 0;
 
         tv1.setOnClickListener(clicklistener);
         tv2.setOnClickListener(clicklistener);

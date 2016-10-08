@@ -84,4 +84,22 @@
     <string name="q10">Behaviour</string>
     <string name="title_teacher_list">Teachers</string>
     <string name="title_teacher_detail">Teacher Detail</string>
+    <!-- questions to be asked for generic form-->
+    <string name="ques1">How would you grade the Teachers</string>
+    <string name="ques2"> How Did You Find The Study Material</string>
+    <string name="ques3">How Was The Coaching Infrastructure</string>
+    <string name="ques4">How Innovative Were The Teachers </string>
+    <string name="ques5">Ease Of Travel To The Class</string>
+    <string name="ques6">Previous Years Results</string>
+    <string name="ques7">Extra-Curricular Activities</string>
+    <string name="ques8"> Counselling During Admission</string>
+    <string name="ques9">Clear Your Doubts Sessions </string>
+    <string name="ques10">How Were The Tests Conducted</string>
+    <string name="ques11"> How Were The Seminars </string>
+    <string name="ques12">How Were The Powerpoint Presentations</string>
+    <string name="ques13">Quality of tests in regular time intervals</string>
+    <string name="ques14">Syllabus coverage in tests</string>
+    <string name="ques15">Test results/feedback on time</string>
+    <string name="ques16">Doubt clearance after tests</string>
+    <string name="ques17">Remedial classes after tests </string>
 </resources>

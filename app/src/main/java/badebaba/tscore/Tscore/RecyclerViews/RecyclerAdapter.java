@@ -18,7 +18,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<CarViewholder> {
 
     public final static int CARD_VAL = 1;
     public static final int BUTTON_VAL = 2;
-    String[] name = {"YOGITHA ", " NEHA APTE ", "NEHA LAD", "RUCHI",
+    String[] name = {"YOGITHA ", " NEHA APTE ", "RUCHI",
             "NEELAM", "BHUMIKA"};
     // RatingBar ratingBar;
     Context context;
