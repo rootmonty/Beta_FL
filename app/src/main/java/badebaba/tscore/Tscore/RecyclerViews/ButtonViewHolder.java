@@ -1,5 +1,6 @@
 package badebaba.tscore.Tscore.RecyclerViews;
 
+import android.app.FragmentManager;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -19,7 +20,6 @@ public class ButtonViewHolder extends CarViewholder {
         super(itemView);
         bottombutton = (Button) itemView.findViewById(R.id.button);
         comment = (EditText) itemView.findViewById(R.id.comment);
-
 
     }
 }

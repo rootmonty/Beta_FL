@@ -1,6 +1,8 @@
 package badebaba.tscore.Tscore.RecyclerViews;
 
 import android.app.AlertDialog;
+import android.app.FragmentManager;
+import android.app.FragmentTransaction;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.support.v7.widget.RecyclerView;
@@ -10,6 +12,7 @@ import android.view.ViewGroup;
 import android.widget.Toast;
 
 import badebaba.tscore.R;
+import badebaba.tscore.Tscore.Teacher;
 
 import static java.lang.StrictMath.abs;
 
@@ -63,7 +66,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<CarViewholder> {
                 @Override
                 public void onClick(View view) {
 
-                    if (countercount >= getItemCount() - 2) {
+                    //if (countercount >= getItemCount()-2) {
                         new AlertDialog.Builder(view.getContext())
                                 .setTitle("Submit")
                                 .setMessage("Do you really want to submit?")
@@ -71,14 +74,14 @@ public class RecyclerAdapter extends RecyclerView.Adapter<CarViewholder> {
                                 .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
 
                                     public void onClick(DialogInterface dialog, int whichButton) {
-                                        Toast.makeText(context, "Yay", Toast.LENGTH_SHORT).show();
+                                        Toast.makeText(context, "Data submitted", Toast.LENGTH_SHORT).show();
                                     }
                                 })
                                 .setNegativeButton(android.R.string.no, null).show();
                         // Toast.makeText(view.getContext(), " DATA Sent with the Comment", Toast.LENGTH_SHORT).show();
                         // Toast.makeText(context, "Button Clicked", Toast.LENGTH_LONG).show();
-                    } else
-                        Toast.makeText(view.getContext(), "Still :" + abs(countercount - getItemCount()) + "left to submit", Toast.LENGTH_SHORT).show();
+                    //  } else
+                    //  Toast.makeText(view.getContext(), "Still :" + abs(countercount - getItemCount()) + "left to submit", Toast.LENGTH_SHORT).show();
 
 
                     /* buttonViewHolder.comment.getText();

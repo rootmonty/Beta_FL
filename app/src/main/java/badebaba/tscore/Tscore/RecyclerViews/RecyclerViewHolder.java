@@ -9,7 +9,11 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.firebase.client.Firebase;
+
+import badebaba.tscore.Bruteforce.Dbstaff;
 import badebaba.tscore.R;
+import badebaba.tscore.SMS.helper.PrefManager;
 
 
 public class RecyclerViewHolder extends CarViewholder {
@@ -27,13 +31,17 @@ public class RecyclerViewHolder extends CarViewholder {
     //Adding questions
     TextView q1, q2, q3;
     // CardView teacher;
+    Dbstaff dbs = new Dbstaff();
+    Firebase mref;
 
-
+    PrefManager prefManager;
     public RecyclerViewHolder(final View itemView) {
         super(itemView);
 
+        Firebase.setAndroidContext(itemView.getContext());
+        prefManager = new PrefManager(itemView.getContext());
         // teacher = (CardView) itemView.findViewById(R.id.teachercardview) ;
-        // mref = new Firebase("https://tscf-b4925.firebaseio.com/stafffeedback/");
+        mref = new Firebase("https://tscore-c9523.firebaseio.com/staff/");
         staff = (TextView) itemView.findViewById(R.id.list_title);
         // visible = (LinearLayout) itemView.findViewById(R.id.visible);
         imageView = (ImageView) itemView.findViewById(R.id.list_avatar);
@@ -88,7 +96,7 @@ public class RecyclerViewHolder extends CarViewholder {
 
                         b01.setBackgroundResource(R.drawable.fill);
                         b01.setFocusableInTouchMode(true);
-
+                        dbs.setA1("1");
                         break;
                     case R.id.stb02:
                         if (b01.getBackground() != null || b04.getBackground() != null || b03.getBackground() != null
@@ -103,6 +111,7 @@ public class RecyclerViewHolder extends CarViewholder {
 
                         // b02.setTextColor(Color.BLUE);
                         b02.setFocusableInTouchMode(true);
+                        dbs.setA1("2");
                         break;
                     case R.id.stb03:
                         if (b01.getBackground() != null || b02.getBackground() != null || b04.getBackground() != null
@@ -115,7 +124,7 @@ public class RecyclerViewHolder extends CarViewholder {
 
                         b03.setBackgroundResource(R.drawable.fill);
                         b03.setFocusableInTouchMode(true);
-
+                        dbs.setA1("3");
                         break;
                     case R.id.stb04:
                         if (b01.getBackground() != null || b02.getBackground() != null || b03.getBackground() != null
@@ -129,7 +138,7 @@ public class RecyclerViewHolder extends CarViewholder {
                         b04.setBackgroundResource(R.drawable.fill);
                         // b04.setTextColor(Color.BLUE);
                         b04.setFocusableInTouchMode(true);
-
+                        dbs.setA1("4");
                         break;
                     case R.id.stb05:
                         if (b01.getBackground() != null || b02.getBackground() != null || b03.getBackground() != null
@@ -143,9 +152,10 @@ public class RecyclerViewHolder extends CarViewholder {
                         b05.setBackgroundResource(R.drawable.fill);
                         // b05.setTextColor(Color.BLUE);
                         b05.setFocusableInTouchMode(true);
-
+                        dbs.setA1("5");
                         break;
                     default:
+                        dbs.setA1("0");
                         break;
                 }
                 //Toast.makeText(view.getContext(), "Rating set : " + value.getA1(), Toast.LENGTH_SHORT).show();
@@ -167,7 +177,7 @@ public class RecyclerViewHolder extends CarViewholder {
                         }
 
                         b11.setBackgroundResource(R.drawable.fill);
-
+                        dbs.setA2("1");
                         break;
                     case R.id.stb12:
                         if (b14.getBackground() != null || b11.getBackground() != null || b13.getBackground() != null
@@ -179,7 +189,7 @@ public class RecyclerViewHolder extends CarViewholder {
                         }
 
                         b12.setBackgroundResource(R.drawable.fill);
-
+                        dbs.setA2("2");
                         break;
                     case R.id.stb13:
                         if (b14.getBackground() != null || b12.getBackground() != null || b11.getBackground() != null
@@ -190,7 +200,7 @@ public class RecyclerViewHolder extends CarViewholder {
                             b15.setBackgroundResource(R.color.standardwhite);
                         }
                         b13.setBackgroundResource(R.drawable.fill);
-
+                        dbs.setA2("3");
                         break;
                     case R.id.stb14:
                         if (b11.getBackground() != null || b12.getBackground() != null || b13.getBackground() != null
@@ -202,7 +212,7 @@ public class RecyclerViewHolder extends CarViewholder {
                         }
 
                         b14.setBackgroundResource(R.drawable.fill);
-
+                        dbs.setA2("4");
                         break;
                     case R.id.stb15:
                         if (b14.getBackground() != null || b12.getBackground() != null || b13.getBackground() != null
@@ -214,9 +224,10 @@ public class RecyclerViewHolder extends CarViewholder {
                         }
 
                         b15.setBackgroundResource(R.drawable.fill);
-
+                        dbs.setA2("5");
                         break;
                     default:
+                        dbs.setA2("0");
                         break;
                 }
                 //  Toast.makeText(view.getContext(), "Rating set : " + value.getA2(), Toast.LENGTH_SHORT).show();
@@ -238,7 +249,7 @@ public class RecyclerViewHolder extends CarViewholder {
                         }
 
                         b21.setBackgroundResource(R.drawable.fill);
-
+                        dbs.setA3("1");
                         break;
                     case R.id.stb22:
                         if (b24.getBackground() != null || b21.getBackground() != null || b23.getBackground() != null
@@ -250,6 +261,7 @@ public class RecyclerViewHolder extends CarViewholder {
                         }
 
                         b22.setBackgroundResource(R.drawable.fill);
+                        dbs.setA3("2");
 
                         break;
                     case R.id.stb23:
@@ -260,6 +272,7 @@ public class RecyclerViewHolder extends CarViewholder {
                             b21.setBackgroundResource(R.color.standardwhite);
                             b25.setBackgroundResource(R.color.standardwhite);
                         }
+                        dbs.setA3("3");
 
                         b23.setBackgroundResource(R.drawable.fill);
                         break;
@@ -273,6 +286,7 @@ public class RecyclerViewHolder extends CarViewholder {
                         }
 
                         b24.setBackgroundResource(R.drawable.fill);
+                        dbs.setA3("4");
 
                         break;
                     case R.id.stb25:
@@ -284,33 +298,20 @@ public class RecyclerViewHolder extends CarViewholder {
                             b21.setBackgroundResource(R.color.standardwhite);
                         }
                         b25.setBackgroundResource(R.drawable.fill);
+                        dbs.setA3("5");
 
                         break;
                     default:
+                        dbs.setA3("0");
+
                         break;
                 }
                 // Toast.makeText(view.getContext(), "Rating set : " + value.getA3(), Toast.LENGTH_SHORT).show();
+                mref.push().child(prefManager.getMobileNumber()).setValue(dbs);
+
 
             }
         };
-
-
-      /*  visible.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View view) {
-               /*
-                value.setStaffname(staff.getText().toString());
-                value.setQ1(q1.getText().toString());
-                value.setQ2(q2.getText().toString());
-                value.setQ3(q3.getText().toString());
-                mref.child("Staff").push().setValue(value);
-                Toast.makeText(view.getContext(), "Your Staff Submission is Done", Toast.LENGTH_SHORT).show();
-
-                linearLayout.setVisibility(View.INVISIBLE);
-            }
-        });
-        */
 
 
         // imageView.setOnClickListener(clicklistener0);

@@ -21,6 +21,7 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.firebase.client.Firebase;
 import com.roughike.bottombar.BottomBar;
 import com.roughike.bottombar.OnTabSelectListener;
 
@@ -50,7 +51,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        Firebase.setAndroidContext(this);
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         //   name = (TextView) findViewById(R.id.name);
         //   email = (TextView) findViewById(R.id.email);
@@ -65,10 +66,10 @@ public class MainActivity extends AppCompatActivity {
         context = getApplicationContext();
         // Checking if user session
         // if not logged in, take user to sms screen
-      /*  if (!pref.isLoggedIn()) {
+        if (!pref.isLoggedIn()) {
             logout();
         }
-        */
+
 
         // Displaying user information from shared preferences
        /*

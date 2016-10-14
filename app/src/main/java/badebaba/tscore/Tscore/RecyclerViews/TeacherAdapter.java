@@ -1,15 +1,21 @@
 package badebaba.tscore.Tscore.RecyclerViews;
 
 import android.app.AlertDialog;
+import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Toast;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import badebaba.tscore.Bruteforce.DbTeacher;
 import badebaba.tscore.R;
 
 import static java.lang.StrictMath.abs;
@@ -38,6 +44,7 @@ public class TeacherAdapter extends RecyclerView.Adapter<TeacherViewHolder> {
     Context context;
     LayoutInflater inflater;
     int countercount = 0;
+    List<DbTeacher> objectteacher = new ArrayList<>();
 
     public TeacherAdapter(Context context) {
         this.context = context;
@@ -57,69 +64,36 @@ public class TeacherAdapter extends RecyclerView.Adapter<TeacherViewHolder> {
     @Override
     public void onBindViewHolder(TeacherViewHolder holder, int position) {
         holder.TeacherName.setText(teachers[position]);
-        holder.submit.setOnClickListener(new View.OnClickListener() {
+
+        /*
+        this is for the storing of the values in the list of teachers object
+         */
+        // objectteacher.add(position,holder.object);
+        // Log.i("Objectteacher", holder.object+"");
+        // Log.i("ObjectTeachervalues",holder.object.getA1()+""+holder.object.getA2()+""
+        // +holder.object.getA3()+holder.object.getA4()+holder.object.getA5()+holder.object.getA6());
+
+        /*
+        Submission through the button, need to reset all the entries and then submit the required fill
+         */
+     /*   holder.submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                // if (countercount >=6 ) {
                 new AlertDialog.Builder(v.getContext())
-                        .setTitle("Submission")
-                        .setMessage("Do you really want to submit?")
-                        .setIcon(android.R.drawable.ic_dialog_alert)
-                        .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
-
-                            public void onClick(DialogInterface dialog, int whichButton) {
-                                Toast.makeText(context, "Yay", Toast.LENGTH_SHORT).show();
+                        .setTitle("Submit")
+                        .setMessage("Are you sure you want to submit?")
+                        .setPositiveButton("YES", new Dialog.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                Toast.makeText(context,"submission for this teacher is done,Scroll down for next one",Toast.LENGTH_LONG).show();
                             }
                         })
-                        .setNegativeButton(android.R.string.no, null).show();
-            }
-            // else {
-            //  Toast.makeText(v.getContext(),"Fill up the entire columns",Toast.LENGTH_SHORT).show();
-            // }
-                // Toast.makeText(v.getContext(), "Submission for this teacher is done", Toast.LENGTH_SHORT).show();
-                //  Toast.makeText(context, "Move to next", Toast.LENGTH_LONG).show();
-            //      }
-        });
-
-        holder.first.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                countercount++;
-            }
-        });
-        holder.second.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                countercount++;
-            }
-        });
-        holder.third.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                countercount++;
-            }
-        });
-        holder.fourth.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                countercount++;
-            }
-        });
-        holder.fifth.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                countercount++;
-            }
-        });
-        holder.sixth.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                countercount++;
-            }
-        });
+                        .setNegativeButton("NO",null)
+                        .show();
 
 
+            }
+        }); */
     }
 
 

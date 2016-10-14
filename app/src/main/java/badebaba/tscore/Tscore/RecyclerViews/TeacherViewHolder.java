@@ -6,14 +6,17 @@ import android.content.DialogInterface;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
-import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.firebase.client.Firebase;
+
+import badebaba.tscore.Bruteforce.DbTeacher;
 import badebaba.tscore.R;
+import badebaba.tscore.SMS.helper.PrefManager;
 
 
 public class TeacherViewHolder extends RecyclerView.ViewHolder {
@@ -31,12 +34,15 @@ public class TeacherViewHolder extends RecyclerView.ViewHolder {
     Button submit;
     LinearLayout first, second, third, fourth, fifth, sixth;
     CardView keyboardview;
+    DbTeacher object = new DbTeacher();
+    Firebase mref;
 
-
+    PrefManager prefManager;
     public TeacherViewHolder(final View itemView) {
         super(itemView);
-        // mref = new Firebase("https://tscf-b4925.firebaseio.com/teacherfeedback/");
+        mref = new Firebase("https://tscore-c9523.firebaseio.com/teacherfeedback/");
 
+        prefManager = new PrefManager(itemView.getContext());
         first = (LinearLayout) itemView.findViewById(R.id.first_tv);
         second = (LinearLayout) itemView.findViewById(R.id.second_tv);
         third = (LinearLayout) itemView.findViewById(R.id.third_tv);
@@ -104,7 +110,7 @@ public class TeacherViewHolder extends RecyclerView.ViewHolder {
 
                         // b01.setTextColor(Color.BLUE);
                         b01.setBackgroundResource(R.drawable.fill);
-
+                        object.setA1("1");
                         break;
                     case R.id.b2:
                         if (b04.getBackground() != null || b01.getBackground() != null || b03.getBackground() != null
@@ -116,6 +122,7 @@ public class TeacherViewHolder extends RecyclerView.ViewHolder {
                         }
 
                         b02.setBackgroundResource(R.drawable.fill);
+                        object.setA1("2");
 
                         break;
                     case R.id.b3:
@@ -126,15 +133,9 @@ public class TeacherViewHolder extends RecyclerView.ViewHolder {
                             b01.setBackgroundResource(R.color.standardwhite);
                             b05.setBackgroundResource(R.color.standardwhite);
                         }
-                       /*
-                        b02.setTextColor(Color.BLACK);
 
-                        b03.setTextColor(Color.BLACK);
-                        b04.setTextColor(Color.BLACK);
-                        b05.setTextColor(Color.BLACK);
-                        */
-                        // b01.setTextColor(Color.BLUE);
                         b03.setBackgroundResource(R.drawable.fill);
+                        object.setA1("3");
 
                         break;
                     case R.id.b4:
@@ -145,15 +146,9 @@ public class TeacherViewHolder extends RecyclerView.ViewHolder {
                             b03.setBackgroundResource(R.color.standardwhite);
                             b05.setBackgroundResource(R.color.standardwhite);
                         }
-                       /*
-                        b02.setTextColor(Color.BLACK);
 
-                        b03.setTextColor(Color.BLACK);
-                        b04.setTextColor(Color.BLACK);
-                        b05.setTextColor(Color.BLACK);
-                        */
-                        // b01.setTextColor(Color.BLUE);
                         b04.setBackgroundResource(R.drawable.fill);
+                        object.setA1("4");
 
                         break;
                     case R.id.b5:
@@ -164,18 +159,13 @@ public class TeacherViewHolder extends RecyclerView.ViewHolder {
                             b03.setBackgroundResource(R.color.standardwhite);
                             b01.setBackgroundResource(R.color.standardwhite);
                         }
-                       /*
-                        b02.setTextColor(Color.BLACK);
 
-                        b03.setTextColor(Color.BLACK);
-                        b04.setTextColor(Color.BLACK);
-                        b05.setTextColor(Color.BLACK);
-                        */
-                        // b01.setTextColor(Color.BLUE);
                         b05.setBackgroundResource(R.drawable.fill);
+                        object.setA1("5");
 
                         break;
                     default:
+                        object.setA1("0");
 
                 }
                 //  Toast.makeText(view.getContext(), "Rating set : " + value.getAns1(), Toast.LENGTH_SHORT).show();
@@ -196,6 +186,7 @@ public class TeacherViewHolder extends RecyclerView.ViewHolder {
                         }
 
                         b11.setBackgroundResource(R.drawable.fill);
+                        object.setA2("1");
 
                         break;
                     case R.id.b12:
@@ -209,6 +200,7 @@ public class TeacherViewHolder extends RecyclerView.ViewHolder {
 
 
                         b12.setBackgroundResource(R.drawable.fill);
+                        object.setA2("2");
 
                         break;
                     case R.id.b13:
@@ -221,6 +213,7 @@ public class TeacherViewHolder extends RecyclerView.ViewHolder {
                         }
 
                         b13.setBackgroundResource(R.drawable.fill);
+                        object.setA2("3");
 
                         break;
                     case R.id.b14:
@@ -231,15 +224,10 @@ public class TeacherViewHolder extends RecyclerView.ViewHolder {
                             b13.setBackgroundResource(R.color.standardwhite);
                             b15.setBackgroundResource(R.color.standardwhite);
                         }
-                       /*
-                        b02.setTextColor(Color.BLACK);
 
-                        b03.setTextColor(Color.BLACK);
-                        b04.setTextColor(Color.BLACK);
-                        b05.setTextColor(Color.BLACK);
-                        */
-                        // b01.setTextColor(Color.BLUE);
                         b14.setBackgroundResource(R.drawable.fill);
+                        object.setA2("4");
+
                         //2(b14.getText().toString());
                         // b4.setBackgroundColor(Color.BLUE);
                         break;
@@ -251,20 +239,17 @@ public class TeacherViewHolder extends RecyclerView.ViewHolder {
                             b13.setBackgroundResource(R.color.standardwhite);
                             b11.setBackgroundResource(R.color.standardwhite);
                         }
-                       /*
-                        b02.setTextColor(Color.BLACK);
 
-                        b03.setTextColor(Color.BLACK);
-                        b04.setTextColor(Color.BLACK);
-                        b05.setTextColor(Color.BLACK);
-                        */
-                        // b01.setTextColor(Color.BLUE);
                         b15.setBackgroundResource(R.drawable.fill);
                         //2(b15.getText().toString());
+                        object.setA2("5");
+
                         // b5.setBackgroundColor(Color.BLUE);
                         break;
                     default:
                         //2("0");
+                        object.setA2("0");
+
                 }
                 //  Toast.makeText(view.getContext(), "Rating set : " + value.getAns2(), Toast.LENGTH_SHORT).show();
 
@@ -283,16 +268,10 @@ public class TeacherViewHolder extends RecyclerView.ViewHolder {
                             b23.setBackgroundResource(R.color.standardwhite);
                             b25.setBackgroundResource(R.color.standardwhite);
                         }
-                       /*
-                        b02.setTextColor(Color.BLACK);
 
-                        b03.setTextColor(Color.BLACK);
-                        b04.setTextColor(Color.BLACK);
-                        b05.setTextColor(Color.BLACK);
-                        */
-                        // b01.setTextColor(Color.BLUE);
                         b21.setBackgroundResource(R.drawable.fill);
                         //3(b21.getText().toString());
+                        object.setA3("1");
 
                         // b1.setBackgroundColor(Color.BLUE);
                         // b1.setCursorVisible(true);
@@ -305,16 +284,12 @@ public class TeacherViewHolder extends RecyclerView.ViewHolder {
                             b23.setBackgroundResource(R.color.standardwhite);
                             b25.setBackgroundResource(R.color.standardwhite);
                         }
-                       /*
-                        b02.setTextColor(Color.BLACK);
 
-                        b03.setTextColor(Color.BLACK);
-                        b04.setTextColor(Color.BLACK);
-                        b05.setTextColor(Color.BLACK);
-                        */
                         // b01.setTextColor(Color.BLUE);
                         b22.setBackgroundResource(R.drawable.fill);
                         //3(b22.getText().toString());
+                        object.setA3("2");
+
                         // b2.setBackgroundColor(Color.BLUE);
                         break;
                     case R.id.b23:
@@ -325,13 +300,9 @@ public class TeacherViewHolder extends RecyclerView.ViewHolder {
                             b21.setBackgroundResource(R.color.standardwhite);
                             b25.setBackgroundResource(R.color.standardwhite);
                         }
-                       /*
-                        b02.setTextColor(Color.BLACK);
 
-                        b03.setTextColor(Color.BLACK);
-                        b04.setTextColor(Color.BLACK);
-                        b05.setTextColor(Color.BLACK);
-                        */
+                        object.setA3("3");
+
                         // b01.setTextColor(Color.BLUE);
                         b23.setBackgroundResource(R.drawable.fill);
                         //3(b23.getText().toString());
@@ -345,15 +316,10 @@ public class TeacherViewHolder extends RecyclerView.ViewHolder {
                             b23.setBackgroundResource(R.color.standardwhite);
                             b25.setBackgroundResource(R.color.standardwhite);
                         }
-                       /*
-                        b02.setTextColor(Color.BLACK);
 
-                        b03.setTextColor(Color.BLACK);
-                        b04.setTextColor(Color.BLACK);
-                        b05.setTextColor(Color.BLACK);
-                        */
-                        // b01.setTextColor(Color.BLUE);
                         b24.setBackgroundResource(R.drawable.fill);
+                        object.setA3("4");
+
                         //3(b24.getText().toString());
                         // b4.setBackgroundColor(Color.BLUE);
                         break;
@@ -365,20 +331,17 @@ public class TeacherViewHolder extends RecyclerView.ViewHolder {
                             b23.setBackgroundResource(R.color.standardwhite);
                             b21.setBackgroundResource(R.color.standardwhite);
                         }
-                       /*
-                        b02.setTextColor(Color.BLACK);
 
-                        b03.setTextColor(Color.BLACK);
-                        b04.setTextColor(Color.BLACK);
-                        b05.setTextColor(Color.BLACK);
-                        */
-                        // b01.setTextColor(Color.BLUE);
                         b25.setBackgroundResource(R.drawable.fill);
+                        object.setA3("5");
+
                         //3(b25.getText().toString());
                         // b5.setBackgroundColor(Color.BLUE);
                         break;
                     default:
                         //3("0");
+                        object.setA3("0");
+
                 }
                 //  Toast.makeText(view.getContext(), "Rating set : " + value.getAns3(), Toast.LENGTH_SHORT).show();
 
@@ -397,15 +360,10 @@ public class TeacherViewHolder extends RecyclerView.ViewHolder {
                             b43.setBackgroundResource(R.color.standardwhite);
                             b45.setBackgroundResource(R.color.standardwhite);
                         }
-                       /*
-                        b02.setTextColor(Color.BLACK);
 
-                        b03.setTextColor(Color.BLACK);
-                        b04.setTextColor(Color.BLACK);
-                        b05.setTextColor(Color.BLACK);
-                        */
-                        // b01.setTextColor(Color.BLUE);
                         b41.setBackgroundResource(R.drawable.fill);
+                        object.setA5("1");
+
                         //5(b41.getText().toString());
 
                         // b1.setBackgroundColor(Color.BLUE);
@@ -419,17 +377,10 @@ public class TeacherViewHolder extends RecyclerView.ViewHolder {
                             b43.setBackgroundResource(R.color.standardwhite);
                             b45.setBackgroundResource(R.color.standardwhite);
                         }
-                       /*
-                        b02.setTextColor(Color.BLACK);
 
-                        b03.setTextColor(Color.BLACK);
-                        b04.setTextColor(Color.BLACK);
-                        b05.setTextColor(Color.BLACK);
-                        */
-                        // b01.setTextColor(Color.BLUE);
                         b42.setBackgroundResource(R.drawable.fill);
-                        //5(b42.getText().toString());
-                        // b2.setBackgroundColor(Color.BLUE);
+                        object.setA5("2");
+
                         break;
                     case R.id.b43:
                         if (b44.getBackground() != null || b42.getBackground() != null || b41.getBackground() != null
@@ -439,17 +390,10 @@ public class TeacherViewHolder extends RecyclerView.ViewHolder {
                             b41.setBackgroundResource(R.color.standardwhite);
                             b45.setBackgroundResource(R.color.standardwhite);
                         }
-                       /*
-                        b02.setTextColor(Color.BLACK);
 
-                        b03.setTextColor(Color.BLACK);
-                        b04.setTextColor(Color.BLACK);
-                        b05.setTextColor(Color.BLACK);
-                        */
-                        // b01.setTextColor(Color.BLUE);
                         b43.setBackgroundResource(R.drawable.fill);
-                        //5(b43.getText().toString());
-                        // b3.setBackgroundColor(Color.BLUE);
+                        object.setA5("3");
+
                         break;
                     case R.id.b44:
                         if (b41.getBackground() != null || b42.getBackground() != null || b43.getBackground() != null
@@ -459,17 +403,10 @@ public class TeacherViewHolder extends RecyclerView.ViewHolder {
                             b43.setBackgroundResource(R.color.standardwhite);
                             b45.setBackgroundResource(R.color.standardwhite);
                         }
-                       /*
-                        b02.setTextColor(Color.BLACK);
 
-                        b03.setTextColor(Color.BLACK);
-                        b04.setTextColor(Color.BLACK);
-                        b05.setTextColor(Color.BLACK);
-                        */
-                        // b01.setTextColor(Color.BLUE);
                         b44.setBackgroundResource(R.drawable.fill);
-                        //5(b44.getText().toString());
-                        // b4.setBackgroundColor(Color.BLUE);
+                        object.setA5("4");
+
                         break;
                     case R.id.b45:
                         if (b44.getBackground() != null || b42.getBackground() != null || b43.getBackground() != null
@@ -479,20 +416,15 @@ public class TeacherViewHolder extends RecyclerView.ViewHolder {
                             b43.setBackgroundResource(R.color.standardwhite);
                             b41.setBackgroundResource(R.color.standardwhite);
                         }
-                       /*
-                        b02.setTextColor(Color.BLACK);
 
-                        b03.setTextColor(Color.BLACK);
-                        b04.setTextColor(Color.BLACK);
-                        b05.setTextColor(Color.BLACK);
-                        */
-                        // b01.setTextColor(Color.BLUE);
                         b45.setBackgroundResource(R.drawable.fill);
-                        //5(b45.getText().toString());
-                        // b5.setBackgroundColor(Color.BLUE);
+                        object.setA5("5");
+
                         break;
                     default:
                         //5("0");
+                        object.setA5("0");
+
                 }
                 //  Toast.makeText(view.getContext(), "Rating set : " + value.getAns5(), Toast.LENGTH_SHORT).show();
 
@@ -511,19 +443,11 @@ public class TeacherViewHolder extends RecyclerView.ViewHolder {
                             b53.setBackgroundResource(R.color.standardwhite);
                             b55.setBackgroundResource(R.color.standardwhite);
                         }
-                       /*
-                        b02.setTextColor(Color.BLACK);
 
-                        b03.setTextColor(Color.BLACK);
-                        b04.setTextColor(Color.BLACK);
-                        b05.setTextColor(Color.BLACK);
-                        */
-                        // b01.setTextColor(Color.BLUE);
                         b51.setBackgroundResource(R.drawable.fill);
-                        //6(b51.getText().toString());
 
-                        // b1.setBackgroundColor(Color.BLUE);
-                        // b1.setCursorVisible(true);
+                        object.setA6("1");
+
                         break;
                     case R.id.b52:
                         if (b54.getBackground() != null || b51.getBackground() != null || b53.getBackground() != null
@@ -533,17 +457,10 @@ public class TeacherViewHolder extends RecyclerView.ViewHolder {
                             b53.setBackgroundResource(R.color.standardwhite);
                             b55.setBackgroundResource(R.color.standardwhite);
                         }
-                       /*
-                        b02.setTextColor(Color.BLACK);
 
-                        b03.setTextColor(Color.BLACK);
-                        b04.setTextColor(Color.BLACK);
-                        b05.setTextColor(Color.BLACK);
-                        */
-                        // b01.setTextColor(Color.BLUE);
                         b52.setBackgroundResource(R.drawable.fill);
-                        //6(b52.getText().toString());
-                        // b2.setBackgroundColor(Color.BLUE);
+                        object.setA6("2");
+
                         break;
                     case R.id.b53:
                         if (b54.getBackground() != null || b52.getBackground() != null || b51.getBackground() != null
@@ -553,17 +470,10 @@ public class TeacherViewHolder extends RecyclerView.ViewHolder {
                             b51.setBackgroundResource(R.color.standardwhite);
                             b55.setBackgroundResource(R.color.standardwhite);
                         }
-                       /*
-                        b02.setTextColor(Color.BLACK);
 
-                        b03.setTextColor(Color.BLACK);
-                        b04.setTextColor(Color.BLACK);
-                        b05.setTextColor(Color.BLACK);
-                        */
-                        // b01.setTextColor(Color.BLUE);
                         b53.setBackgroundResource(R.drawable.fill);
-                        //6(b53.getText().toString());
-                        // b3.setBackgroundColor(Color.BLUE);
+                        object.setA6("3");
+
                         break;
                     case R.id.b54:
                         if (b51.getBackground() != null || b52.getBackground() != null || b53.getBackground() != null
@@ -573,17 +483,10 @@ public class TeacherViewHolder extends RecyclerView.ViewHolder {
                             b53.setBackgroundResource(R.color.standardwhite);
                             b55.setBackgroundResource(R.color.standardwhite);
                         }
-                       /*
-                        b02.setTextColor(Color.BLACK);
 
-                        b03.setTextColor(Color.BLACK);
-                        b04.setTextColor(Color.BLACK);
-                        b05.setTextColor(Color.BLACK);
-                        */
-                        // b01.setTextColor(Color.BLUE);
                         b54.setBackgroundResource(R.drawable.fill);
-                        //6(b54.getText().toString());
-                        // b4.setBackgroundColor(Color.BLUE);
+                        object.setA6("4");
+
                         break;
                     case R.id.b55:
                         if (b54.getBackground() != null || b52.getBackground() != null || b53.getBackground() != null
@@ -593,20 +496,15 @@ public class TeacherViewHolder extends RecyclerView.ViewHolder {
                             b53.setBackgroundResource(R.color.standardwhite);
                             b55.setBackgroundResource(R.color.standardwhite);
                         }
-                       /*
-                        b02.setTextColor(Color.BLACK);
 
-                        b03.setTextColor(Color.BLACK);
-                        b04.setTextColor(Color.BLACK);
-                        b05.setTextColor(Color.BLACK);
-                        */
-                        // b01.setTextColor(Color.BLUE);
                         b55.setBackgroundResource(R.drawable.fill);
-                        //6(b55.getText().toString());
-                        // b5.setBackgroundColor(Color.BLUE);
+                        object.setA6("5");
+
                         break;
                     default:
                         //6("0");
+                        object.setA6("0");
+
                 }
                 // Toast.makeText(view.getContext(), "Rating set : " + value.getAns6(), Toast.LENGTH_SHORT).show();
 
@@ -625,19 +523,10 @@ public class TeacherViewHolder extends RecyclerView.ViewHolder {
                             b33.setBackgroundResource(R.color.standardwhite);
                             b35.setBackgroundResource(R.color.standardwhite);
                         }
-                       /*
-                        b02.setTextColor(Color.BLACK);
 
-                        b03.setTextColor(Color.BLACK);
-                        b04.setTextColor(Color.BLACK);
-                        b05.setTextColor(Color.BLACK);
-                        */
-                        // b01.setTextColor(Color.BLUE);
                         b31.setBackgroundResource(R.drawable.fill);
-                        //4(b31.getText().toString());
+                        object.setA4("1");
 
-                        // b1.setBackgroundColor(Color.BLUE);
-                        // b1.setCursorVisible(true);
                         break;
                     case R.id.b32:
                         if (b34.getBackground() != null || b31.getBackground() != null || b33.getBackground() != null
@@ -647,17 +536,10 @@ public class TeacherViewHolder extends RecyclerView.ViewHolder {
                             b33.setBackgroundResource(R.color.standardwhite);
                             b35.setBackgroundResource(R.color.standardwhite);
                         }
-                       /*
-                        b02.setTextColor(Color.BLACK);
 
-                        b03.setTextColor(Color.BLACK);
-                        b04.setTextColor(Color.BLACK);
-                        b05.setTextColor(Color.BLACK);
-                        */
-                        // b01.setTextColor(Color.BLUE);
                         b32.setBackgroundResource(R.drawable.fill);
-                        //4(b32.getText().toString());
-                        // b2.setBackgroundColor(Color.BLUE);
+                        object.setA4("2");
+
                         break;
                     case R.id.b33:
                         if (b34.getBackground() != null || b32.getBackground() != null || b31.getBackground() != null
@@ -667,17 +549,10 @@ public class TeacherViewHolder extends RecyclerView.ViewHolder {
                             b31.setBackgroundResource(R.color.standardwhite);
                             b35.setBackgroundResource(R.color.standardwhite);
                         }
-                       /*
-                        b02.setTextColor(Color.BLACK);
 
-                        b03.setTextColor(Color.BLACK);
-                        b04.setTextColor(Color.BLACK);
-                        b05.setTextColor(Color.BLACK);
-                        */
-                        // b01.setTextColor(Color.BLUE);
                         b33.setBackgroundResource(R.drawable.fill);
-                        //4(b33.getText().toString());
-                        // b3.setBackgroundColor(Color.BLUE);
+                        object.setA4("3");
+
                         break;
                     case R.id.b34:
                         if (b33.getBackground() != null || b32.getBackground() != null || b31.getBackground() != null
@@ -687,18 +562,9 @@ public class TeacherViewHolder extends RecyclerView.ViewHolder {
                             b31.setBackgroundResource(R.color.standardwhite);
                             b35.setBackgroundResource(R.color.standardwhite);
                         }
-                       /*
-                        b02.setTextColor(Color.BLACK);
-
-                        b03.setTextColor(Color.BLACK);
-                        b04.setTextColor(Color.BLACK);
-                        b05.setTextColor(Color.BLACK);
-                        */
-                        // b01.setTextColor(Color.BLUE);
                         b34.setBackgroundResource(R.drawable.fill);
-                        // tv4.setBackgroundColor(Color.BLUE);
-                        //4(b34.getText().toString());
-                        // b4.setBackgroundColor(Color.BLUE);
+                        object.setA4("4");
+
                         break;
                     case R.id.b35:
                         if (b34.getBackground() != null || b32.getBackground() != null || b33.getBackground() != null
@@ -708,21 +574,14 @@ public class TeacherViewHolder extends RecyclerView.ViewHolder {
                             b33.setBackgroundResource(R.color.standardwhite);
                             b31.setBackgroundResource(R.color.standardwhite);
                         }
-                       /*
-                        b02.setTextColor(Color.BLACK);
 
-                        b03.setTextColor(Color.BLACK);
-                        b04.setTextColor(Color.BLACK);
-                        b05.setTextColor(Color.BLACK);
-                        */
-                        // b01.setTextColor(Color.BLUE);
                         b35.setBackgroundResource(R.drawable.fill);
-                        // tv5.setBackgroundColor(Color.BLUE);
-                        //4(b35.getText().toString());
-                        // b5.setBackgroundColor(Color.BLUE);
+                        object.setA4("5");
                         break;
                     default:
                         //4("0");
+                        object.setA4("0");
+
                 }
                 //  Toast.makeText(view.getContext(), "Rating set : " + value.getAns4(), Toast.LENGTH_SHORT).show();
 
@@ -764,46 +623,85 @@ public class TeacherViewHolder extends RecyclerView.ViewHolder {
         View.OnClickListener submission = new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //  value.setElaborate(Elaborate.getText().toString());
-                //  value.setElaborateans(ElaborateAns.getText().toString());
-                //  value.setTeachername(TeacherName.getText().toString());
-                // mref.push().child("Teacher feedback").setValue(value);
-                Toast.makeText(view.getContext(), "Your Teacher Submission is Done", Toast.LENGTH_LONG).show();
-            }
-        };
-        // submit.setOnClickListener(submission);
-        submit.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                //  if (countercount >= getItemCount()-2) {
-             /*   if (b01.getDrawableState() == null || b02.getDrawableState() == null || b03.getDrawableState() == null || b04.getDrawableState() == null ||
-                        b05.getDrawableState() == null || b11.getDrawableState() == null || b12.getDrawableState() == null ||
-                        b13.getDrawableState() == null || b14.getDrawableState() == null || b15.getDrawableState() == null ||
-                        b21.getDrawableState() == null || b22.getDrawableState() == null || b23.getDrawableState() == null ||
-                        b24.getDrawableState() == null || b25.getDrawableState() == null || b31.getDrawableState() == null ||
-                        b32.getDrawableState() == null || b33.getDrawableState() == null || b34.getDrawableState() == null ||
-                        b35.getDrawableState() == null || b41.getDrawableState() == null || b42.getDrawableState() == null ||
-                        b43.getDrawableState() == null || b44.getDrawableState() == null || b45.getDrawableState() == null ||
-                        b51.getDrawableState() == null || b52.getDrawableState() == null || b53.getDrawableState() == null ||
-                        b54.getDrawableState() == null || b55.getDrawableState() == null) {
-                } else { */
 
-                new AlertDialog.Builder(v.getContext())
+                object.setEdt(ElaborateAns.getText().toString());
+                new AlertDialog.Builder(view.getContext())
                         .setTitle("Submission")
                         .setMessage("Do you really want to submit?")
                         .setIcon(android.R.drawable.ic_dialog_alert)
                         .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
 
                             public void onClick(DialogInterface dialog, int whichButton) {
-                                Toast.makeText(itemView.getContext(), "Yay", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(itemView.getContext(), "Yes", Toast.LENGTH_SHORT).show();
+                                b01.setBackgroundResource(R.color.standardwhite);
+                                b02.setBackgroundResource(R.color.standardwhite);
+                                b03.setBackgroundResource(R.color.standardwhite);
+                                b04.setBackgroundResource(R.color.standardwhite);
+                                b05.setBackgroundResource(R.color.standardwhite);
+                                b11.setBackgroundResource(R.color.standardwhite);
+                                b12.setBackgroundResource(R.color.standardwhite);
+                                b13.setBackgroundResource(R.color.standardwhite);
+                                b14.setBackgroundResource(R.color.standardwhite);
+                                b15.setBackgroundResource(R.color.standardwhite);
+                                b21.setBackgroundResource(R.color.standardwhite);
+                                b22.setBackgroundResource(R.color.standardwhite);
+                                b23.setBackgroundResource(R.color.standardwhite);
+                                b24.setBackgroundResource(R.color.standardwhite);
+                                b25.setBackgroundResource(R.color.standardwhite);
+                                b31.setBackgroundResource(R.color.standardwhite);
+                                b32.setBackgroundResource(R.color.standardwhite);
+                                b33.setBackgroundResource(R.color.standardwhite);
+                                b34.setBackgroundResource(R.color.standardwhite);
+                                b35.setBackgroundResource(R.color.standardwhite);
+                                b41.setBackgroundResource(R.color.standardwhite);
+                                b42.setBackgroundResource(R.color.standardwhite);
+                                b43.setBackgroundResource(R.color.standardwhite);
+                                b44.setBackgroundResource(R.color.standardwhite);
+                                b45.setBackgroundResource(R.color.standardwhite);
+                                b51.setBackgroundResource(R.color.standardwhite);
+                                b52.setBackgroundResource(R.color.standardwhite);
+                                b53.setBackgroundResource(R.color.standardwhite);
+                                b54.setBackgroundResource(R.color.standardwhite);
+                                b55.setBackgroundResource(R.color.standardwhite);
+                                ElaborateAns.setText("");
+                                mref.push().child(prefManager.getMobileNumber()).setValue(object);
                             }
                         })
                         .setNegativeButton(android.R.string.no, null).show();
-                // Toast.makeText(v.getContext(), "Submission for this teacher is done", Toast.LENGTH_SHORT).show();
-                //  Toast.makeText(context, "Move to next", Toast.LENGTH_LONG).show();
+                b01.setBackgroundResource(R.color.standardwhite);
+                b02.setBackgroundResource(R.color.standardwhite);
+                b03.setBackgroundResource(R.color.standardwhite);
+                b04.setBackgroundResource(R.color.standardwhite);
+                b05.setBackgroundResource(R.color.standardwhite);
+                b11.setBackgroundResource(R.color.standardwhite);
+                b12.setBackgroundResource(R.color.standardwhite);
+                b13.setBackgroundResource(R.color.standardwhite);
+                b14.setBackgroundResource(R.color.standardwhite);
+                b15.setBackgroundResource(R.color.standardwhite);
+                b21.setBackgroundResource(R.color.standardwhite);
+                b22.setBackgroundResource(R.color.standardwhite);
+                b23.setBackgroundResource(R.color.standardwhite);
+                b24.setBackgroundResource(R.color.standardwhite);
+                b25.setBackgroundResource(R.color.standardwhite);
+                b31.setBackgroundResource(R.color.standardwhite);
+                b32.setBackgroundResource(R.color.standardwhite);
+                b33.setBackgroundResource(R.color.standardwhite);
+                b34.setBackgroundResource(R.color.standardwhite);
+                b35.setBackgroundResource(R.color.standardwhite);
+                b41.setBackgroundResource(R.color.standardwhite);
+                b42.setBackgroundResource(R.color.standardwhite);
+                b43.setBackgroundResource(R.color.standardwhite);
+                b44.setBackgroundResource(R.color.standardwhite);
+                b45.setBackgroundResource(R.color.standardwhite);
+                b51.setBackgroundResource(R.color.standardwhite);
+                b52.setBackgroundResource(R.color.standardwhite);
+                b53.setBackgroundResource(R.color.standardwhite);
+                b54.setBackgroundResource(R.color.standardwhite);
+                b55.setBackgroundResource(R.color.standardwhite);
+                ElaborateAns.setText("");
             }
-        });
-
+        };
+        submit.setOnClickListener(submission);
 
     }
 }
