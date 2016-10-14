@@ -3,10 +3,8 @@ package badebaba.tscore.Tscore;
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.IdRes;
-import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
@@ -18,12 +16,14 @@ import com.roughike.bottombar.BottomBar;
 import com.roughike.bottombar.OnTabSelectListener;
 
 import badebaba.tscore.R;
-
+import badebaba.tscore.Tscore.RecyclerViews.TeacherViewCallback;
 
 /**
  * Created by badebaba on 9/18/2016.
  */
-public class BottomMain extends AppCompatActivity {
+
+
+public class BottomMain extends AppCompatActivity implements TeacherViewCallback {
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -71,10 +71,7 @@ public class BottomMain extends AppCompatActivity {
             fragmentTransaction.addToBackStack(null);
             fragmentTransaction.commit();
 
-
         }
-
-
     }
 
     @Override
@@ -97,4 +94,9 @@ public class BottomMain extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
+
+    @Override
+    public void onSuccessFulSubmission() {
+
+    }
 }

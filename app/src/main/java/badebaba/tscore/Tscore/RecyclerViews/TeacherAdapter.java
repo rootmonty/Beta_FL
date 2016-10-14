@@ -11,6 +11,8 @@ import badebaba.tscore.R;
 
 public class TeacherAdapter extends RecyclerView.Adapter<TeacherViewHolder> {
 
+    private TeacherViewCallback teacherViewCallback;
+
     String[] teachers = {"Hitesh Vakharia(Maths)",
             "Kekul Vakharia(Science)",
             "Janki Barodia(French)",
@@ -32,8 +34,10 @@ public class TeacherAdapter extends RecyclerView.Adapter<TeacherViewHolder> {
     Context context;
     LayoutInflater inflater;
 
-    public TeacherAdapter(Context context) {
+
+    public TeacherAdapter(Context context, TeacherViewCallback teacherViewCallback) {
         this.context = context;
+        this.teacherViewCallback = teacherViewCallback;
         inflater = LayoutInflater.from(context);
 
     }
@@ -42,7 +46,7 @@ public class TeacherAdapter extends RecyclerView.Adapter<TeacherViewHolder> {
     public TeacherViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
 
         View view = inflater.inflate(R.layout.teacher, parent, false);
-        TeacherViewHolder teacherViewHolder = new TeacherViewHolder(view);
+        TeacherViewHolder teacherViewHolder = new TeacherViewHolder(view, teacherViewCallback);
         return teacherViewHolder;
     }
 

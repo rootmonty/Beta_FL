@@ -23,11 +23,13 @@ public class TeacherViewHolder extends RecyclerView.ViewHolder {
     TextView Elaborate;
     EditText ElaborateAns;
     Button submit;
+    private TeacherViewCallback teacherViewCallback;
 
 
-    public TeacherViewHolder(View itemView) {
+    public TeacherViewHolder(View itemView, final TeacherViewCallback teacherViewCallback) {
         super(itemView);
         // mref = new Firebase("https://tscf-b4925.firebaseio.com/teacherfeedback/");
+        this.teacherViewCallback = teacherViewCallback;
         TeacherName = (TextView) itemView.findViewById(R.id.staffname);
         q1 = (TextView) itemView.findViewById(R.id.q1);
         q2 = (TextView) itemView.findViewById(R.id.q2);
@@ -750,6 +752,8 @@ public class TeacherViewHolder extends RecyclerView.ViewHolder {
                 //  value.setElaborateans(ElaborateAns.getText().toString());
                 //  value.setTeachername(TeacherName.getText().toString());
                 // mref.push().child("Teacher feedback").setValue(value);
+
+                teacherViewCallback.onSuccessFulSubmission();
                 Toast.makeText(view.getContext(), "Your Teacher Submission is Done", Toast.LENGTH_LONG).show();
             }
         };
