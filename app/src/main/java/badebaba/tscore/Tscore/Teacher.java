@@ -13,6 +13,7 @@ import badebaba.tscore.R;
 import badebaba.tscore.Tscore.RecyclerViews.TeacherAdapter;
 import badebaba.tscore.Tscore.RecyclerViews.TeacherViewCallback;
 
+
 public class Teacher extends Fragment {
 
 
@@ -38,6 +39,7 @@ public class Teacher extends Fragment {
         View rootview = inflater.inflate(R.layout.teacherrecycler, container, false);
 
         recyclerView2 = (RecyclerView) rootview.findViewById(R.id.teacher_recycler);
+
 
         TeacherAdapter adapter = new TeacherAdapter(rootview.getContext(), teacherViewCallback);
         linearLayoutManager = new LinearLayoutManager(getActivity());

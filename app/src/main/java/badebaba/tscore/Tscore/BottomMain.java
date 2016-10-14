@@ -18,10 +18,11 @@ import com.roughike.bottombar.OnTabSelectListener;
 import badebaba.tscore.R;
 import badebaba.tscore.Tscore.RecyclerViews.TeacherViewCallback;
 
-
 /**
  * Created by badebaba on 9/18/2016.
  */
+
+
 public class BottomMain extends AppCompatActivity implements TeacherViewCallback {
 
     @Override
@@ -69,6 +70,7 @@ public class BottomMain extends AppCompatActivity implements TeacherViewCallback
             fragmentTransaction.replace(R.id.contentContainer, fragment);
             fragmentTransaction.addToBackStack(null);
             fragmentTransaction.commit();
+
         }
     }
 
@@ -91,6 +93,7 @@ public class BottomMain extends AppCompatActivity implements TeacherViewCallback
         }
         return super.onOptionsItemSelected(item);
     }
+
 
     @Override
     public void onSuccessFulSubmission() {

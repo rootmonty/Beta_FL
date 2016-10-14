@@ -34,6 +34,7 @@ public class TeacherAdapter extends RecyclerView.Adapter<TeacherViewHolder> {
     Context context;
     LayoutInflater inflater;
 
+
     public TeacherAdapter(Context context, TeacherViewCallback teacherViewCallback) {
         this.context = context;
         this.teacherViewCallback = teacherViewCallback;
