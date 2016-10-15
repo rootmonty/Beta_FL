@@ -1,4 +1,4 @@
-package badebaba.tscore.Bruteforce;
+package badebaba.tscore.Tscore;
 
 import android.app.AlertDialog;
 import android.app.Fragment;
@@ -20,6 +20,7 @@ import android.widget.Toast;
 
 import com.firebase.client.Firebase;
 
+import badebaba.tscore.Bruteforce.Dbobj;
 import badebaba.tscore.R;
 import badebaba.tscore.SMS.helper.PrefManager;
 import badebaba.tscore.Tscore.Staff;

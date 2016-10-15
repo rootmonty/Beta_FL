@@ -25,10 +25,9 @@ import com.firebase.client.Firebase;
 import com.roughike.bottombar.BottomBar;
 import com.roughike.bottombar.OnTabSelectListener;
 
-import badebaba.tscore.Bruteforce.Generic;
+import badebaba.tscore.Tscore.Generic;
 import badebaba.tscore.SMS.SmsActivity;
 import badebaba.tscore.SMS.helper.PrefManager;
-import badebaba.tscore.Tscore.General;
 import badebaba.tscore.Tscore.Staff;
 import badebaba.tscore.Tscore.Teacher;
 
