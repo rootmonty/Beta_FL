@@ -7,8 +7,11 @@ import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckedTextView;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.LinearLayout;
+import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -32,25 +35,50 @@ public class TeacherViewHolder extends RecyclerView.ViewHolder {
     TextView Elaborate;
     EditText ElaborateAns;
     Button submit;
-    LinearLayout first, second, third, fourth, fifth, sixth;
-    CardView keyboardview;
     DbTeacher object = new DbTeacher();
     Firebase mref;
-
+    TextView submission;
     PrefManager prefManager;
+    private Switch mySwitch;
     public TeacherViewHolder(final View itemView) {
         super(itemView);
         mref = new Firebase("https://tscore-c9523.firebaseio.com/teacherfeedback/");
 
+        submission = (TextView) itemView.findViewById(R.id.checkedTextView);
         prefManager = new PrefManager(itemView.getContext());
-        first = (LinearLayout) itemView.findViewById(R.id.first_tv);
-        second = (LinearLayout) itemView.findViewById(R.id.second_tv);
-        third = (LinearLayout) itemView.findViewById(R.id.third_tv);
-        fourth = (LinearLayout) itemView.findViewById(R.id.fourth_tv);
-        fifth = (LinearLayout) itemView.findViewById(R.id.fifth_tv);
-        sixth = (LinearLayout) itemView.findViewById(R.id.sixth_tv);
 
-        keyboardview = (CardView) itemView.findViewById(R.id.teachercardview);
+        // submission = (TextView) itemView.findViewById(R.id.switchStatus);
+        mySwitch = (Switch) itemView.findViewById(R.id.switch1);
+
+        //set the switch to ON
+        mySwitch.setChecked(false);
+        //attach a listener to check for changes in state
+        mySwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView,
+                                         boolean isChecked) {
+
+                new AlertDialog.Builder(itemView.getContext())
+                        .setTitle("ALERT")
+                        .setMessage("Switch only when submission is done")
+                        .show();
+                if (isChecked) {
+                    submission.setText("Submission DONE");
+                } else {
+                    submission.setText("Submission started");
+                }
+
+            }
+        });
+
+        //check the current state before we display the screen
+        if (mySwitch.isChecked()) {
+            submission.setText("Submission DONE");
+        } else {
+            submission.setText("In Progress");
+        }
+
         TeacherName = (TextView) itemView.findViewById(R.id.staffname);
         q1 = (TextView) itemView.findViewById(R.id.q1);
         q2 = (TextView) itemView.findViewById(R.id.q2);
@@ -60,7 +88,7 @@ public class TeacherViewHolder extends RecyclerView.ViewHolder {
         q6 = (TextView) itemView.findViewById(R.id.q6);
         Elaborate = (TextView) itemView.findViewById(R.id.elaborate);
         ElaborateAns = (EditText) itemView.findViewById(R.id.elaborateans);
-        submit = (Button) itemView.findViewById(R.id.submitbut);
+        // submit = (Button) itemView.findViewById(R.id.submitbut);
         b01 = (TextView) itemView.findViewById(R.id.b1);
         b02 = (TextView) itemView.findViewById(R.id.b2);
         b03 = (TextView) itemView.findViewById(R.id.b3);
@@ -94,10 +122,19 @@ public class TeacherViewHolder extends RecyclerView.ViewHolder {
 
         submit = (Button) itemView.findViewById(R.id.submitbut);
 
+        object.setA1("0");
+        object.setA2("0");
+        object.setA3("0");
+        object.setA4("0");
+        object.setA5("0");
+        object.setA6("0");
+
 
         View.OnClickListener clicklistener1 = new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+                submission.setText("Submission started");
                 switch (view.getId()) {
                     case R.id.b1:
                         if (b04.getBackground() != null || b02.getBackground() != null || b03.getBackground() != null
@@ -175,6 +212,7 @@ public class TeacherViewHolder extends RecyclerView.ViewHolder {
         View.OnClickListener clicklistener2 = new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                submission.setText("Submission started");
                 switch (view.getId()) {
                     case R.id.b11:
                         if (b14.getBackground() != null || b12.getBackground() != null || b13.getBackground() != null
@@ -259,6 +297,8 @@ public class TeacherViewHolder extends RecyclerView.ViewHolder {
         View.OnClickListener clicklistener3 = new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                submission.setText("Submission started");
+
                 switch (view.getId()) {
                     case R.id.b21:
                         if (b24.getBackground() != null || b22.getBackground() != null || b23.getBackground() != null
@@ -351,6 +391,8 @@ public class TeacherViewHolder extends RecyclerView.ViewHolder {
         View.OnClickListener clicklistener5 = new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                submission.setText("Submission started");
+
                 switch (view.getId()) {
                     case R.id.b41:
                         if (b44.getBackground() != null || b42.getBackground() != null || b43.getBackground() != null
@@ -434,6 +476,8 @@ public class TeacherViewHolder extends RecyclerView.ViewHolder {
         View.OnClickListener clicklistener6 = new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                submission.setText("Submission started");
+
                 switch (view.getId()) {
                     case R.id.b51:
                         if (b54.getBackground() != null || b52.getBackground() != null || b53.getBackground() != null
@@ -514,6 +558,8 @@ public class TeacherViewHolder extends RecyclerView.ViewHolder {
         View.OnClickListener clicklistener4 = new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                submission.setText("Submission started");
+
                 switch (view.getId()) {
                     case R.id.b31:
                         if (b34.getBackground() != null || b32.getBackground() != null || b33.getBackground() != null
@@ -618,87 +664,71 @@ public class TeacherViewHolder extends RecyclerView.ViewHolder {
         b53.setOnClickListener(clicklistener6);
         b54.setOnClickListener(clicklistener6);
         b55.setOnClickListener(clicklistener6);
+
+
 //
 
         View.OnClickListener submission = new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
-                object.setEdt(ElaborateAns.getText().toString());
-                new AlertDialog.Builder(view.getContext())
-                        .setTitle("Submission")
-                        .setMessage("Do you really want to submit?")
-                        .setIcon(android.R.drawable.ic_dialog_alert)
-                        .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
 
-                            public void onClick(DialogInterface dialog, int whichButton) {
-                                Toast.makeText(itemView.getContext(), "Yes", Toast.LENGTH_SHORT).show();
-                                b01.setBackgroundResource(R.color.standardwhite);
-                                b02.setBackgroundResource(R.color.standardwhite);
-                                b03.setBackgroundResource(R.color.standardwhite);
-                                b04.setBackgroundResource(R.color.standardwhite);
-                                b05.setBackgroundResource(R.color.standardwhite);
-                                b11.setBackgroundResource(R.color.standardwhite);
-                                b12.setBackgroundResource(R.color.standardwhite);
-                                b13.setBackgroundResource(R.color.standardwhite);
-                                b14.setBackgroundResource(R.color.standardwhite);
-                                b15.setBackgroundResource(R.color.standardwhite);
-                                b21.setBackgroundResource(R.color.standardwhite);
-                                b22.setBackgroundResource(R.color.standardwhite);
-                                b23.setBackgroundResource(R.color.standardwhite);
-                                b24.setBackgroundResource(R.color.standardwhite);
-                                b25.setBackgroundResource(R.color.standardwhite);
-                                b31.setBackgroundResource(R.color.standardwhite);
-                                b32.setBackgroundResource(R.color.standardwhite);
-                                b33.setBackgroundResource(R.color.standardwhite);
-                                b34.setBackgroundResource(R.color.standardwhite);
-                                b35.setBackgroundResource(R.color.standardwhite);
-                                b41.setBackgroundResource(R.color.standardwhite);
-                                b42.setBackgroundResource(R.color.standardwhite);
-                                b43.setBackgroundResource(R.color.standardwhite);
-                                b44.setBackgroundResource(R.color.standardwhite);
-                                b45.setBackgroundResource(R.color.standardwhite);
-                                b51.setBackgroundResource(R.color.standardwhite);
-                                b52.setBackgroundResource(R.color.standardwhite);
-                                b53.setBackgroundResource(R.color.standardwhite);
-                                b54.setBackgroundResource(R.color.standardwhite);
-                                b55.setBackgroundResource(R.color.standardwhite);
-                                ElaborateAns.setText("");
-                                mref.push().child(prefManager.getMobileNumber()).setValue(object);
-                            }
-                        })
-                        .setNegativeButton(android.R.string.no, null).show();
-                b01.setBackgroundResource(R.color.standardwhite);
-                b02.setBackgroundResource(R.color.standardwhite);
-                b03.setBackgroundResource(R.color.standardwhite);
-                b04.setBackgroundResource(R.color.standardwhite);
-                b05.setBackgroundResource(R.color.standardwhite);
-                b11.setBackgroundResource(R.color.standardwhite);
-                b12.setBackgroundResource(R.color.standardwhite);
-                b13.setBackgroundResource(R.color.standardwhite);
-                b14.setBackgroundResource(R.color.standardwhite);
-                b15.setBackgroundResource(R.color.standardwhite);
-                b21.setBackgroundResource(R.color.standardwhite);
-                b22.setBackgroundResource(R.color.standardwhite);
-                b23.setBackgroundResource(R.color.standardwhite);
-                b24.setBackgroundResource(R.color.standardwhite);
-                b25.setBackgroundResource(R.color.standardwhite);
-                b31.setBackgroundResource(R.color.standardwhite);
-                b32.setBackgroundResource(R.color.standardwhite);
-                b33.setBackgroundResource(R.color.standardwhite);
-                b34.setBackgroundResource(R.color.standardwhite);
-                b35.setBackgroundResource(R.color.standardwhite);
-                b41.setBackgroundResource(R.color.standardwhite);
-                b42.setBackgroundResource(R.color.standardwhite);
-                b43.setBackgroundResource(R.color.standardwhite);
-                b44.setBackgroundResource(R.color.standardwhite);
-                b45.setBackgroundResource(R.color.standardwhite);
-                b51.setBackgroundResource(R.color.standardwhite);
-                b52.setBackgroundResource(R.color.standardwhite);
-                b53.setBackgroundResource(R.color.standardwhite);
-                b54.setBackgroundResource(R.color.standardwhite);
-                b55.setBackgroundResource(R.color.standardwhite);
-                ElaborateAns.setText("");
+                object.setEdt(ElaborateAns.getText().toString());
+
+                if (object.getA1() == "0" || object.getA2() == "0" || object.getA3() == "0" || object.getA4() == "0" ||
+                        object.getA5() == "0" || object.getA6() == "0") {
+                    Toast.makeText(view.getContext(), "Please answer all the six questions", Toast.LENGTH_LONG).show();
+                } else {
+
+                    new AlertDialog.Builder(view.getContext())
+                            .setTitle("Submission")
+                            .setMessage("Do you really want to submit?")
+                            .setIcon(android.R.drawable.ic_dialog_alert)
+                            .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+
+
+                                public void onClick(DialogInterface dialog, int whichButton) {
+
+
+                                    Toast.makeText(itemView.getContext(), "Submission for this teacher is done,Move onto next teacher", Toast.LENGTH_LONG).show();
+                                    b01.setBackgroundResource(R.color.standardwhite);
+                                    b02.setBackgroundResource(R.color.standardwhite);
+                                    b03.setBackgroundResource(R.color.standardwhite);
+                                    b04.setBackgroundResource(R.color.standardwhite);
+                                    b05.setBackgroundResource(R.color.standardwhite);
+                                    b11.setBackgroundResource(R.color.standardwhite);
+                                    b12.setBackgroundResource(R.color.standardwhite);
+                                    b13.setBackgroundResource(R.color.standardwhite);
+                                    b14.setBackgroundResource(R.color.standardwhite);
+                                    b15.setBackgroundResource(R.color.standardwhite);
+                                    b21.setBackgroundResource(R.color.standardwhite);
+                                    b22.setBackgroundResource(R.color.standardwhite);
+                                    b23.setBackgroundResource(R.color.standardwhite);
+                                    b24.setBackgroundResource(R.color.standardwhite);
+                                    b25.setBackgroundResource(R.color.standardwhite);
+                                    b31.setBackgroundResource(R.color.standardwhite);
+                                    b32.setBackgroundResource(R.color.standardwhite);
+                                    b33.setBackgroundResource(R.color.standardwhite);
+                                    b34.setBackgroundResource(R.color.standardwhite);
+                                    b35.setBackgroundResource(R.color.standardwhite);
+                                    b41.setBackgroundResource(R.color.standardwhite);
+                                    b42.setBackgroundResource(R.color.standardwhite);
+                                    b43.setBackgroundResource(R.color.standardwhite);
+                                    b44.setBackgroundResource(R.color.standardwhite);
+                                    b45.setBackgroundResource(R.color.standardwhite);
+                                    b51.setBackgroundResource(R.color.standardwhite);
+                                    b52.setBackgroundResource(R.color.standardwhite);
+                                    b53.setBackgroundResource(R.color.standardwhite);
+                                    b54.setBackgroundResource(R.color.standardwhite);
+                                    b55.setBackgroundResource(R.color.standardwhite);
+                                    ElaborateAns.setText("");
+
+                                    mref.push().child(prefManager.getMobileNumber()).setValue(object);
+                                }
+                            })
+                            .setNegativeButton(android.R.string.no, null).show();
+
+                }
             }
         };
         submit.setOnClickListener(submission);

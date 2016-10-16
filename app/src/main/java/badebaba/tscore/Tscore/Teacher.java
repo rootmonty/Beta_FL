@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
 
+import badebaba.tscore.MainActivity;
 import badebaba.tscore.R;
 import badebaba.tscore.Tscore.RecyclerViews.TeacherAdapter;
 
@@ -30,6 +31,9 @@ public class Teacher extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
         View rootview = inflater.inflate(R.layout.teacherrecycler, container, false);
+
+        ((MainActivity) getActivity()).setbool(3);
+        getActivity().setTitle(getString(R.string.teachertab));
 
         recyclerView2 = (RecyclerView) rootview.findViewById(R.id.teacher_recycler);
 

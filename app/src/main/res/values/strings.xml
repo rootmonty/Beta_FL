@@ -3,6 +3,10 @@
 
     <!-- Information about the SMS Verification -->
 
+    <string name="generaltab">GENERAL</string>
+    <string name="stafftab">STAFF</string>
+    <string name="teachertab">TEACHER</string>
+
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
     <string name="title_activity_sms">SmsActivity</string>

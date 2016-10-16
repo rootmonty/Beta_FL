@@ -7,7 +7,6 @@ import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.content.Context;
 import android.content.DialogInterface;
-import android.support.annotation.IdRes;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
@@ -22,24 +21,23 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.firebase.client.Firebase;
-import com.roughike.bottombar.BottomBar;
-import com.roughike.bottombar.OnTabSelectListener;
+
+import java.util.HashMap;
 
 import badebaba.tscore.Tscore.Generic;
 import badebaba.tscore.SMS.SmsActivity;
 import badebaba.tscore.SMS.helper.PrefManager;
-import badebaba.tscore.Tscore.Staff;
-import badebaba.tscore.Tscore.Teacher;
 
 
 public class MainActivity extends AppCompatActivity {
 
-    BottomBar bottomBar;
+    // BottomBar bottomBar;
     Context context;
+    //Fragment fragment;
+    int validation = 0;
     private Toolbar toolbar;
     private PrefManager pref;
     private TextView name, email, mobile;
-    //Fragment fragment;
 
     public static void hideKeyboardFrom(Context context, View view) {
         InputMethodManager imm = (InputMethodManager) context.getSystemService(Activity.INPUT_METHOD_SERVICE);
@@ -71,14 +69,13 @@ public class MainActivity extends AppCompatActivity {
 
 
         // Displaying user information from shared preferences
-       /*
+
         HashMap<String, String> profile = pref.getUserDetails();
 
-        name.setText("Name: " + profile.get("name"));
-        email.setText("Email: " + profile.get("email"));
-        mobile.setText("Mobile: " + profile.get("mobile"));
+        //  name.setText("Name: " + profile.get("name"));
+        // email.setText("Email: " + profile.get("email"));
+        // mobile.setText("Mobile: " + profile.get("mobile"));
 
-        */
 
         findViewById(R.id.main).setOnTouchListener(new View.OnTouchListener() {
             @Override
@@ -88,7 +85,9 @@ public class MainActivity extends AppCompatActivity {
                 return false;
             }
         });
+      /*
         bottomBar = (BottomBar) findViewById(R.id.bottomBar);
+
         bottomBar.setOnTabSelectListener(new OnTabSelectListener() {
             @Override
             public void onTabSelected(@IdRes int tabId) {
@@ -104,15 +103,19 @@ public class MainActivity extends AppCompatActivity {
 
                 }
             }
-        });
+        }); */
+
+        initialisefragment(0, profile.get("name"));
     }
 
-    public void initialisefragment(int tabId) {
+    public void initialisefragment(int tabId, String name) {
         Fragment fragment = null;
-        switch (tabId) {
-            case R.id.general:
+        // switch (tabId) {
+        // case R.id.general:
+        // case 0:
                 AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
-                alertDialogBuilder.setMessage("This activity contains the general feedback" +
+        alertDialogBuilder.setTitle("Hello " + name);
+        alertDialogBuilder.setMessage(name + ", This activity contains the general feedback" +
                         "form.Please fill the respective form and submit and only then move" +
                         "to the next section" +
                         "\nclick below to the activity ");
@@ -129,8 +132,9 @@ public class MainActivity extends AppCompatActivity {
                 alertDialog.show();
                 // fragment = new General();
                 fragment = new Generic();
-                break;
-            case R.id.staff:
+        //  break;
+        //  case R.id.staff:
+          /*  case 1:
                 AlertDialog.Builder alertDialogBuilder1 = new AlertDialog.Builder(this);
                 alertDialogBuilder1.setMessage("This activity contains the Staff feedback" +
                         "form.Please fill with unbiased opinion,the respective form and submit and only then move" +
@@ -172,15 +176,16 @@ public class MainActivity extends AppCompatActivity {
             default:
                 break;
         }
-        if (fragment != null) {
+        */
+        // if (fragment != null) {
             FragmentManager fragmentManager = getFragmentManager();
             FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
             fragmentTransaction.replace(R.id.contentContainer, fragment);
-            fragmentTransaction.addToBackStack(null);
+        // fragmentTransaction.addToBackStack(null);
             fragmentTransaction.commit();
 
 
-        }
+        // }
 
 
     }
@@ -220,6 +225,23 @@ public class MainActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    @Override
+    public void onResume() {
+        super.onResume();
+    }
+
+    public void setbool(int n) {
+        validation = n;
+
+    }
+
+    @Override
+    public void onBackPressed() {
+        new AlertDialog.Builder(this)
+                .setTitle("ALERT")
+                .setMessage("You can not resend the data and go back").show();
+        finish();
+    }
     public void open(View view) {
         AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
         alertDialogBuilder.setMessage("This activity contains the feedback options for general, staff and Teachers" +

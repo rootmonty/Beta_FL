@@ -5,7 +5,6 @@ import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.content.DialogInterface;
-import android.nfc.Tag;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.util.Log;
@@ -14,16 +13,15 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.firebase.client.Firebase;
 
 import badebaba.tscore.Bruteforce.Dbobj;
+import badebaba.tscore.MainActivity;
 import badebaba.tscore.R;
 import badebaba.tscore.SMS.helper.PrefManager;
-import badebaba.tscore.Tscore.Staff;
 
 /**
  * Created by badebaba on 10/7/2016.
@@ -63,6 +61,30 @@ public class Generic extends Fragment {
 
         View itemView = inflater.inflate(R.layout.testing_genericlayout, container, false);
         //counter = (LinearLayout) itemView.findViewById(R.id.tv_counter);
+
+        getActivity().setTitle(getString(R.string.generaltab));
+
+        db.setA1("0");
+        db.setA2("0");
+        db.setA3("0");
+        db.setA4("0");
+        db.setA5("0");
+        db.setA6("0");
+        db.setA7("0");
+        db.setA8("0");
+        db.setA9("0");
+        db.setA10("0");
+        db.setA11("0");
+        db.setA12("0");
+        db.setA13("0");
+        db.setA14("0");
+        db.setA15("0");
+        db.setA16("0");
+        db.setA17("0");
+
+
+
+
         //ques = (TextView) itemView.findViewById(R.id.setQuestion);
         pref = new PrefManager(itemView.getContext());
         mref = new Firebase("https://tscore-c9523.firebaseio.com/General");
@@ -155,115 +177,124 @@ public class Generic extends Fragment {
         comment = (EditText) itemView.findViewById(R.id.comment);
         submit = (Button) itemView.findViewById(R.id.button);
 
+        ((MainActivity) getActivity()).setbool(1);
+
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 db.setEdt(comment.getText().toString());
 
                 Log.i("The database:", db.toString() + "");
+                if (db.getA1() == "0" || db.getA2() == "0" || db.getA3() == "0" || db.getA4() == "0" ||
+                        db.getA5() == "0" || db.getA6() == "0" || db.getA7() == "0" || db.getA8() == "0" ||
+                        db.getA9() == "0" || db.getA10() == "0" || db.getA11() == "0" || db.getA12() == "0" ||
+                        db.getA13() == "0" || db.getA14() == "0" || db.getA15() == "0" || db.getA16() == "0" ||
+                        db.getA17() == "0")
+                    Toast.makeText(v.getContext(), "Please fill all entries first", Toast.LENGTH_LONG).show();
+                else {
+                    new AlertDialog.Builder(v.getContext())
+                            .setMessage("Sure to move to another form")
+                            .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface arg0, int arg1) {
+                                    // Toast.makeText(MainActivity.this,"You clicked yes button",Toast.LENGTH_LONG).show();
+                                    // Toast.makeText(getContext(), "Your submission is done,go to another activity and submit", Toast.LENGTH_LONG).show();
+                                    mref.push().child(pref.getMobileNumber()).push().setValue(db);
 
-                new AlertDialog.Builder(v.getContext())
-                        .setMessage("Sure to move to another form")
-                        .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface arg0, int arg1) {
-                                // Toast.makeText(MainActivity.this,"You clicked yes button",Toast.LENGTH_LONG).show();
-                                // Toast.makeText(getContext(), "Your submission is done,go to another activity and submit", Toast.LENGTH_LONG).show();
-                                mref.push().child(pref.getMobileNumber()).push().setValue(db);
-                                tv1.setBackgroundResource(R.color.standardwhite);
-                                tv2.setBackgroundResource(R.color.standardwhite);
-                                tv3.setBackgroundResource(R.color.standardwhite);
-                                tv4.setBackgroundResource(R.color.standardwhite);
-                                tv5.setBackgroundResource(R.color.standardwhite);
-                                tv21.setBackgroundResource(R.color.standardwhite);
-                                tv22.setBackgroundResource(R.color.standardwhite);
-                                tv23.setBackgroundResource(R.color.standardwhite);
-                                tv24.setBackgroundResource(R.color.standardwhite);
-                                tv25.setBackgroundResource(R.color.standardwhite);
-                                tv31.setBackgroundResource(R.color.standardwhite);
-                                tv32.setBackgroundResource(R.color.standardwhite);
-                                tv33.setBackgroundResource(R.color.standardwhite);
-                                tv34.setBackgroundResource(R.color.standardwhite);
-                                tv35.setBackgroundResource(R.color.standardwhite);
-                                tv41.setBackgroundResource(R.color.standardwhite);
-                                tv42.setBackgroundResource(R.color.standardwhite);
-                                tv43.setBackgroundResource(R.color.standardwhite);
-                                tv44.setBackgroundResource(R.color.standardwhite);
-                                tv45.setBackgroundResource(R.color.standardwhite);
-                                tv51.setBackgroundResource(R.color.standardwhite);
-                                tv52.setBackgroundResource(R.color.standardwhite);
-                                tv53.setBackgroundResource(R.color.standardwhite);
-                                tv54.setBackgroundResource(R.color.standardwhite);
-                                tv55.setBackgroundResource(R.color.standardwhite);
-                                tv61.setBackgroundResource(R.color.standardwhite);
-                                tv62.setBackgroundResource(R.color.standardwhite);
-                                tv63.setBackgroundResource(R.color.standardwhite);
-                                tv64.setBackgroundResource(R.color.standardwhite);
-                                tv65.setBackgroundResource(R.color.standardwhite);
-                                tv71.setBackgroundResource(R.color.standardwhite);
-                                tv72.setBackgroundResource(R.color.standardwhite);
-                                tv73.setBackgroundResource(R.color.standardwhite);
-                                tv74.setBackgroundResource(R.color.standardwhite);
-                                tv75.setBackgroundResource(R.color.standardwhite);
-                                tv81.setBackgroundResource(R.color.standardwhite);
-                                tv82.setBackgroundResource(R.color.standardwhite);
-                                tv83.setBackgroundResource(R.color.standardwhite);
-                                tv84.setBackgroundResource(R.color.standardwhite);
-                                tv85.setBackgroundResource(R.color.standardwhite);
-                                tv91.setBackgroundResource(R.color.standardwhite);
-                                tv92.setBackgroundResource(R.color.standardwhite);
-                                tv93.setBackgroundResource(R.color.standardwhite);
-                                tv94.setBackgroundResource(R.color.standardwhite);
-                                tv95.setBackgroundResource(R.color.standardwhite);
-                                tv101.setBackgroundResource(R.color.standardwhite);
-                                tv102.setBackgroundResource(R.color.standardwhite);
-                                tv103.setBackgroundResource(R.color.standardwhite);
-                                tv104.setBackgroundResource(R.color.standardwhite);
-                                tv105.setBackgroundResource(R.color.standardwhite);
-                                tv111.setBackgroundResource(R.color.standardwhite);
-                                tv112.setBackgroundResource(R.color.standardwhite);
-                                tv113.setBackgroundResource(R.color.standardwhite);
-                                tv114.setBackgroundResource(R.color.standardwhite);
-                                tv115.setBackgroundResource(R.color.standardwhite);
-                                tv121.setBackgroundResource(R.color.standardwhite);
-                                tv122.setBackgroundResource(R.color.standardwhite);
-                                tv123.setBackgroundResource(R.color.standardwhite);
-                                tv124.setBackgroundResource(R.color.standardwhite);
-                                tv125.setBackgroundResource(R.color.standardwhite);
-                                tv131.setBackgroundResource(R.color.standardwhite);
-                                tv132.setBackgroundResource(R.color.standardwhite);
-                                tv133.setBackgroundResource(R.color.standardwhite);
-                                tv134.setBackgroundResource(R.color.standardwhite);
-                                tv135.setBackgroundResource(R.color.standardwhite);
-                                tv141.setBackgroundResource(R.color.standardwhite);
-                                tv142.setBackgroundResource(R.color.standardwhite);
-                                tv143.setBackgroundResource(R.color.standardwhite);
-                                tv144.setBackgroundResource(R.color.standardwhite);
-                                tv145.setBackgroundResource(R.color.standardwhite);
-                                tv151.setBackgroundResource(R.color.standardwhite);
-                                tv152.setBackgroundResource(R.color.standardwhite);
-                                tv153.setBackgroundResource(R.color.standardwhite);
-                                tv154.setBackgroundResource(R.color.standardwhite);
-                                tv155.setBackgroundResource(R.color.standardwhite);
-                                tv161.setBackgroundResource(R.color.standardwhite);
-                                tv162.setBackgroundResource(R.color.standardwhite);
-                                tv163.setBackgroundResource(R.color.standardwhite);
-                                tv164.setBackgroundResource(R.color.standardwhite);
-                                tv165.setBackgroundResource(R.color.standardwhite);
-                                tv171.setBackgroundResource(R.color.standardwhite);
-                                tv172.setBackgroundResource(R.color.standardwhite);
-                                tv173.setBackgroundResource(R.color.standardwhite);
-                                tv174.setBackgroundResource(R.color.standardwhite);
-                                tv175.setBackgroundResource(R.color.standardwhite);
-                                FragmentManager fragmentManager = getFragmentManager();
-                                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-                                fragmentTransaction.replace(R.id.contentContainer, new Staff()).addToBackStack(null).commit();
-                            }
-                        })
-                        .setNegativeButton("NO", null)
-                        .create().show();
-                //Toast.makeText(v.getContext(), "Your submission is done,go to another activity and submit", Toast.LENGTH_LONG).show();
-
+                                    tv1.setBackgroundResource(R.color.standardwhite);
+                                    tv2.setBackgroundResource(R.color.standardwhite);
+                                    tv3.setBackgroundResource(R.color.standardwhite);
+                                    tv4.setBackgroundResource(R.color.standardwhite);
+                                    tv5.setBackgroundResource(R.color.standardwhite);
+                                    tv21.setBackgroundResource(R.color.standardwhite);
+                                    tv22.setBackgroundResource(R.color.standardwhite);
+                                    tv23.setBackgroundResource(R.color.standardwhite);
+                                    tv24.setBackgroundResource(R.color.standardwhite);
+                                    tv25.setBackgroundResource(R.color.standardwhite);
+                                    tv31.setBackgroundResource(R.color.standardwhite);
+                                    tv32.setBackgroundResource(R.color.standardwhite);
+                                    tv33.setBackgroundResource(R.color.standardwhite);
+                                    tv34.setBackgroundResource(R.color.standardwhite);
+                                    tv35.setBackgroundResource(R.color.standardwhite);
+                                    tv41.setBackgroundResource(R.color.standardwhite);
+                                    tv42.setBackgroundResource(R.color.standardwhite);
+                                    tv43.setBackgroundResource(R.color.standardwhite);
+                                    tv44.setBackgroundResource(R.color.standardwhite);
+                                    tv45.setBackgroundResource(R.color.standardwhite);
+                                    tv51.setBackgroundResource(R.color.standardwhite);
+                                    tv52.setBackgroundResource(R.color.standardwhite);
+                                    tv53.setBackgroundResource(R.color.standardwhite);
+                                    tv54.setBackgroundResource(R.color.standardwhite);
+                                    tv55.setBackgroundResource(R.color.standardwhite);
+                                    tv61.setBackgroundResource(R.color.standardwhite);
+                                    tv62.setBackgroundResource(R.color.standardwhite);
+                                    tv63.setBackgroundResource(R.color.standardwhite);
+                                    tv64.setBackgroundResource(R.color.standardwhite);
+                                    tv65.setBackgroundResource(R.color.standardwhite);
+                                    tv71.setBackgroundResource(R.color.standardwhite);
+                                    tv72.setBackgroundResource(R.color.standardwhite);
+                                    tv73.setBackgroundResource(R.color.standardwhite);
+                                    tv74.setBackgroundResource(R.color.standardwhite);
+                                    tv75.setBackgroundResource(R.color.standardwhite);
+                                    tv81.setBackgroundResource(R.color.standardwhite);
+                                    tv82.setBackgroundResource(R.color.standardwhite);
+                                    tv83.setBackgroundResource(R.color.standardwhite);
+                                    tv84.setBackgroundResource(R.color.standardwhite);
+                                    tv85.setBackgroundResource(R.color.standardwhite);
+                                    tv91.setBackgroundResource(R.color.standardwhite);
+                                    tv92.setBackgroundResource(R.color.standardwhite);
+                                    tv93.setBackgroundResource(R.color.standardwhite);
+                                    tv94.setBackgroundResource(R.color.standardwhite);
+                                    tv95.setBackgroundResource(R.color.standardwhite);
+                                    tv101.setBackgroundResource(R.color.standardwhite);
+                                    tv102.setBackgroundResource(R.color.standardwhite);
+                                    tv103.setBackgroundResource(R.color.standardwhite);
+                                    tv104.setBackgroundResource(R.color.standardwhite);
+                                    tv105.setBackgroundResource(R.color.standardwhite);
+                                    tv111.setBackgroundResource(R.color.standardwhite);
+                                    tv112.setBackgroundResource(R.color.standardwhite);
+                                    tv113.setBackgroundResource(R.color.standardwhite);
+                                    tv114.setBackgroundResource(R.color.standardwhite);
+                                    tv115.setBackgroundResource(R.color.standardwhite);
+                                    tv121.setBackgroundResource(R.color.standardwhite);
+                                    tv122.setBackgroundResource(R.color.standardwhite);
+                                    tv123.setBackgroundResource(R.color.standardwhite);
+                                    tv124.setBackgroundResource(R.color.standardwhite);
+                                    tv125.setBackgroundResource(R.color.standardwhite);
+                                    tv131.setBackgroundResource(R.color.standardwhite);
+                                    tv132.setBackgroundResource(R.color.standardwhite);
+                                    tv133.setBackgroundResource(R.color.standardwhite);
+                                    tv134.setBackgroundResource(R.color.standardwhite);
+                                    tv135.setBackgroundResource(R.color.standardwhite);
+                                    tv141.setBackgroundResource(R.color.standardwhite);
+                                    tv142.setBackgroundResource(R.color.standardwhite);
+                                    tv143.setBackgroundResource(R.color.standardwhite);
+                                    tv144.setBackgroundResource(R.color.standardwhite);
+                                    tv145.setBackgroundResource(R.color.standardwhite);
+                                    tv151.setBackgroundResource(R.color.standardwhite);
+                                    tv152.setBackgroundResource(R.color.standardwhite);
+                                    tv153.setBackgroundResource(R.color.standardwhite);
+                                    tv154.setBackgroundResource(R.color.standardwhite);
+                                    tv155.setBackgroundResource(R.color.standardwhite);
+                                    tv161.setBackgroundResource(R.color.standardwhite);
+                                    tv162.setBackgroundResource(R.color.standardwhite);
+                                    tv163.setBackgroundResource(R.color.standardwhite);
+                                    tv164.setBackgroundResource(R.color.standardwhite);
+                                    tv165.setBackgroundResource(R.color.standardwhite);
+                                    tv171.setBackgroundResource(R.color.standardwhite);
+                                    tv172.setBackgroundResource(R.color.standardwhite);
+                                    tv173.setBackgroundResource(R.color.standardwhite);
+                                    tv174.setBackgroundResource(R.color.standardwhite);
+                                    tv175.setBackgroundResource(R.color.standardwhite);
+                                    FragmentManager fragmentManager = getFragmentManager();
+                                    FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                                    fragmentTransaction.replace(R.id.contentContainer, new Staffnew()).addToBackStack(null).commit();
+                                }
+                            })
+                            .setNegativeButton("NO", null)
+                            .create().show();
+                    //Toast.makeText(v.getContext(), "Your submission is done,go to another activity and submit", Toast.LENGTH_LONG).show();
+                }
             }
         });
         View.OnClickListener clicklistener = new View.OnClickListener() {
@@ -335,7 +366,7 @@ public class Generic extends Fragment {
                         db.setA1("0");
                         break;
                 }
-                Toast.makeText(view.getContext(), "Rating set : " + db.getA1(), Toast.LENGTH_SHORT).show();
+                // Toast.makeText(view.getContext(), "Rating set : " + db.getA1(), Toast.LENGTH_SHORT).show();
 
             }
         };
