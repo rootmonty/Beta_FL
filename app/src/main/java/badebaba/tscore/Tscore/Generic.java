@@ -63,6 +63,7 @@ public class Generic extends Fragment {
         //counter = (LinearLayout) itemView.findViewById(R.id.tv_counter);
 
         getActivity().setTitle(getString(R.string.generaltab));
+        ((MainActivity) getActivity()).countprogress(0);
 
         db.setA1("0");
         db.setA2("0");

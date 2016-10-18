@@ -690,6 +690,7 @@ public class TeacherViewHolder extends RecyclerView.ViewHolder {
                                 public void onClick(DialogInterface dialog, int whichButton) {
 
 
+                                    submit.setBackgroundResource(R.color.colorPrimaryDark);
                                     Toast.makeText(itemView.getContext(), "Submission for this teacher is done,Move onto next teacher", Toast.LENGTH_LONG).show();
                                     b01.setBackgroundResource(R.color.standardwhite);
                                     b02.setBackgroundResource(R.color.standardwhite);

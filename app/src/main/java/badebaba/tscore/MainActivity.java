@@ -17,6 +17,7 @@ import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -35,6 +36,7 @@ public class MainActivity extends AppCompatActivity {
     Context context;
     //Fragment fragment;
     int validation = 0;
+    ProgressBar progressBar;
     private Toolbar toolbar;
     private PrefManager pref;
     private TextView name, email, mobile;
@@ -195,6 +197,11 @@ public class MainActivity extends AppCompatActivity {
      * will clear all user shared preferences and navigate to
      * sms activation screen
      */
+    public void countprogress(int number) {
+        progressBar = (ProgressBar) findViewById(R.id.progressBar);
+        progressBar.setMax(3);
+        progressBar.setProgress(number);
+    }
     private void logout() {
         pref.clearSession();
 
@@ -220,6 +227,12 @@ public class MainActivity extends AppCompatActivity {
         if (id == R.id.action_logout) {
             logout();
             return true;
+        } else if (id == R.id.action_chat) {
+            startActivity(new Intent(this, Main2Activity.class));
+        } else {
+            new AlertDialog.Builder(this)
+                    .setMessage("Developer : DrManhattan\n Copyright:ParshvaPublication")
+                    .show();
         }
 
         return super.onOptionsItemSelected(item);
@@ -239,29 +252,10 @@ public class MainActivity extends AppCompatActivity {
     public void onBackPressed() {
         new AlertDialog.Builder(this)
                 .setTitle("ALERT")
-                .setMessage("You can not resend the data and go back").show();
-        finish();
+                .setMessage("You can not resend the data and go back")
+                .setPositiveButton("OK", null)
+                .show();
+        //finish();
     }
-    public void open(View view) {
-        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
-        alertDialogBuilder.setMessage("This activity contains the feedback options for general, staff and Teachers" +
-                "click on yes to go to the activity and no to exit the app");
 
-        alertDialogBuilder.setPositiveButton("yes", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface arg0, int arg1) {
-                Toast.makeText(MainActivity.this, "You clicked yes button", Toast.LENGTH_LONG).show();
-            }
-        });
-
-        alertDialogBuilder.setNegativeButton("No", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                finish();
-            }
-        });
-
-        AlertDialog alertDialog = alertDialogBuilder.create();
-        alertDialog.show();
-    }
 }

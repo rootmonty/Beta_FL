@@ -53,7 +53,8 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginTop="330dp"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:weightSum="1">
 
             <TextView
                 android:id="@+id/elaborate"
@@ -61,13 +62,15 @@
                 android:layout_height="30dp"
                 android:layout_gravity="center_vertical"
                 android:gravity="center_vertical"
-                android:text="Mention the changes you would like to see " />
+                android:text="Mention the changes you would like to see "
+                android:textColor="@color/standardblack" />
 
             <EditText
                 android:id="@+id/elaborateans"
-                android:layout_width="237dp"
+                android:layout_width="match_parent"
                 android:layout_height="60dp"
                 android:layout_marginTop="5dp"
+                android:layout_weight="0.16"
                 android:hint="Any Specific Changes"
                 android:imeOptions="actionDone"
                 android:lineSpacingExtra="8sp"
@@ -84,6 +87,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
                 android:layout_gravity="center_horizontal"
+                android:background="@color/standardwhite"
+                android:elevation="3dp"
                 android:text="SUBMIT" />
 
         </LinearLayout>
@@ -106,7 +111,9 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="4"
-                android:text="@string/q1" />
+                android:gravity="center"
+                android:text="@string/q1"
+                android:textColor="@color/standardblack" />
 
             <TextView
                 android:id="@+id/b1"
@@ -171,7 +178,9 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="4"
-                android:text="@string/q2" />
+                android:gravity="center"
+                android:text="@string/q2"
+                android:textColor="@color/standardblack" />
 
             <TextView
                 android:id="@+id/b11"
@@ -237,7 +246,9 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="4"
-                android:text="@string/q3" />
+                android:gravity="center"
+                android:text="@string/q3"
+                android:textColor="@color/standardblack" />
 
             <TextView
                 android:id="@+id/b21"
@@ -303,7 +314,9 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="4"
-                android:text="@string/q4" />
+                android:gravity="center"
+                android:text="@string/q4"
+                android:textColor="@color/standardblack" />
 
             <TextView
                 android:id="@+id/b31"
@@ -369,7 +382,9 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="4"
-                android:text="@string/q5" />
+                android:gravity="center"
+                android:text="@string/q5"
+                android:textColor="@color/standardblack" />
 
             <TextView
                 android:id="@+id/b41"
@@ -435,7 +450,9 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="4"
-                android:text="@string/q6" />
+                android:gravity="center"
+                android:text="@string/q6"
+                android:textColor="@color/standardblack" />
 
             <TextView
                 android:id="@+id/b51"

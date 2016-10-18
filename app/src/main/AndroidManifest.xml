@@ -16,16 +16,12 @@
             android:name=".SMS.SmsActivity"
             android:label="Register"
             android:screenOrientation="portrait"
-            android:windowSoftInputMode="adjustPan">
-
-        </activity>
+            android:windowSoftInputMode="adjustPan"></activity>
         <activity
             android:name=".MainActivity"
             android:label="@string/app_name"
             android:screenOrientation="portrait"
-            android:windowSoftInputMode="adjustPan">
-
-        </activity>
+            android:windowSoftInputMode="adjustPan"></activity>
         <!-- SMS Receiver -->
         <receiver android:name=".SMS.receiver.SmsReceiver">
             <intent-filter android:priority="99999">
@@ -42,13 +38,22 @@
             android:name=".SplashActivity"
             android:label="@string/app_name"
             android:screenOrientation="portrait"
-
             android:theme="@style/SplashTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER"></category>
-            </intent-filter>
 
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".Main2Activity"
+            android:label="@string/title_activity_main2"
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/MyMaterialTheme"
+            android:windowSoftInputMode="adjustPan">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="badebaba.tscore.MainActivity" />
         </activity>
     </application>
 

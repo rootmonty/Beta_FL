@@ -1,6 +1,8 @@
 package badebaba.tscore.Tscore;
 
+import android.app.AlertDialog;
 import android.app.Fragment;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.LinearLayoutManager;
@@ -33,7 +35,26 @@ public class Teacher extends Fragment {
         View rootview = inflater.inflate(R.layout.teacherrecycler, container, false);
 
         ((MainActivity) getActivity()).setbool(3);
+        ((MainActivity) getActivity()).countprogress(2);
+
         getActivity().setTitle(getString(R.string.teachertab));
+
+        AlertDialog.Builder alertDialogBuilder1 = new AlertDialog.Builder(rootview.getContext());
+        alertDialogBuilder1.setMessage("This activity contains the Teacher feedback" +
+                "form.Please fill with unbiased opinion,the respective form and submit and only then move" +
+                "to the next section" +
+                "\nclick below to the activity ");
+
+        alertDialogBuilder1.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface arg0, int arg1) {
+                // Toast.makeText(MainActivity.this,"You clicked yes button",Toast.LENGTH_LONG).show();
+
+
+            }
+        });
+        AlertDialog alertDialog1 = alertDialogBuilder1.create();
+        alertDialog1.show();
 
         recyclerView2 = (RecyclerView) rootview.findViewById(R.id.teacher_recycler);
 

@@ -57,6 +57,8 @@ public class Staffnew extends Fragment {
         getActivity().setTitle(getString(R.string.stafftab));
         submit = (Button) root.findViewById(R.id.button);
 
+        ((MainActivity) getActivity()).countprogress(1);
+
         tv001 = (TextView) root.findViewById(R.id.stb001);
         tv002 = (TextView) root.findViewById(R.id.stb002);
         tv003 = (TextView) root.findViewById(R.id.stb003);
@@ -144,6 +146,23 @@ public class Staffnew extends Fragment {
         edt5 = (EditText) root.findViewById(R.id.edt5);
 
         comment = (EditText) root.findViewById(R.id.comment);
+
+        AlertDialog.Builder alertDialogBuilder1 = new AlertDialog.Builder(root.getContext());
+        alertDialogBuilder1.setMessage("This activity contains the Staff feedback" +
+                "form.Please fill with unbiased opinion,the respective form and submit and only then move" +
+                "to the next section" +
+                "\nclick below to the activity ");
+
+        alertDialogBuilder1.setPositiveButton("Staff Section", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface arg0, int arg1) {
+                // Toast.makeText(MainActivity.this,"You clicked yes button",Toast.LENGTH_LONG).show();
+
+
+            }
+        });
+        AlertDialog alertDialog1 = alertDialogBuilder1.create();
+        alertDialog1.show();
 
 
         db.setAns11("0");
@@ -961,7 +980,7 @@ public class Staffnew extends Fragment {
                             tv315.setBackgroundResource(R.color.standardwhite);
                         }
 
-                        tv004.setBackgroundResource(R.drawable.fill);
+                        tv314.setBackgroundResource(R.drawable.fill);
                         db.setAns42("4");
                         break;
                     case R.id.stb415:

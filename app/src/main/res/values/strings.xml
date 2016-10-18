@@ -3,9 +3,9 @@
 
     <!-- Information about the SMS Verification -->
 
-    <string name="generaltab">GENERAL</string>
-    <string name="stafftab">STAFF</string>
-    <string name="teachertab">TEACHER</string>
+    <string name="generaltab">Tscore-General</string>
+    <string name="stafftab">Tscore-Staff</string>
+    <string name="teachertab">Tscore-Teacher</string>
 
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
@@ -17,7 +17,7 @@
     <string name="lbl_mobile">Mobile</string>
     <string name="lbl_next">NEXT</string>
     <string name="msg_sit_back">Sit back &amp; Relax! while we verify your mobile number</string>
-    <string name="msg_manual_otp">(Enter the OTP below in case if we fail to detect the SMS automatically)</string>
+    <string name="msg_manual_otp">(Enter the OTP below which you have received in SMS )</string>
     <string name="lbl_enter_otp">Enter OTP</string>
     <string name="lbl_submit">SUBMIT</string>
 
@@ -106,4 +106,5 @@
     <string name="ques15">Test results/feedback on time</string>
     <string name="ques16">Doubt clearance after tests</string>
     <string name="ques17">Remedial classes after tests </string>
+    <string name="title_activity_main2">Main2Activity</string>
 </resources>
