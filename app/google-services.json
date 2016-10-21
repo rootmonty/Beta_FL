@@ -1,27 +1,27 @@
 {
   "project_info": {
-    "project_number": "465794419810",
-    "firebase_url": "https://tscore-c9523.firebaseio.com",
-    "project_id": "tscore-c9523",
-    "storage_bucket": "tscore-c9523.appspot.com"
+    "project_number": "1083813840769",
+    "firebase_url": "https://tscore-cc104.firebaseio.com",
+    "project_id": "tscore-cc104",
+    "storage_bucket": "tscore-cc104.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:465794419810:android:ff4740aa72fd549f",
+        "mobilesdk_app_id": "1:1083813840769:android:ff4740aa72fd549f",
         "android_client_info": {
           "package_name": "badebaba.tscore"
         }
       },
       "oauth_client": [
         {
-          "client_id": "465794419810-s37u9qltdavfgfe89v9aph2ij7t5gnt9.apps.googleusercontent.com",
+          "client_id": "1083813840769-1s7rtivffbamcqfop5sst0n7p6b0ttrt.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyADcaOKVsa4q1MlAWmzGnoV5cNU-bzVCvw"
+          "current_key": "AIzaSyDb7pzragJ2hpQzJWjB_7ilSFeeR0bWihw"
         }
       ],
       "services": {

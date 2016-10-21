@@ -13,7 +13,7 @@
     </style>
 
     <style name="SplashTheme" parent="Theme.AppCompat.NoActionBar">
-        <item name="android:windowBackground">@drawable/rsz_final_options_029</item>
+        <item name="android:windowBackground">@drawable/launch</item>
     </style>
 
     <style name="MyMaterialTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />

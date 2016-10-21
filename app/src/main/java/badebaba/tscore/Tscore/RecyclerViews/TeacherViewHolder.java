@@ -39,7 +39,9 @@ public class TeacherViewHolder extends RecyclerView.ViewHolder {
     Firebase mref;
     TextView submission;
     PrefManager prefManager;
+    Button finalsubmit;
     private Switch mySwitch;
+
     public TeacherViewHolder(final View itemView) {
         super(itemView);
         mref = new Firebase("https://tscore-c9523.firebaseio.com/teacherfeedback/");
@@ -48,10 +50,11 @@ public class TeacherViewHolder extends RecyclerView.ViewHolder {
         prefManager = new PrefManager(itemView.getContext());
 
         // submission = (TextView) itemView.findViewById(R.id.switchStatus);
-        mySwitch = (Switch) itemView.findViewById(R.id.switch1);
+        // mySwitch = (Switch) itemView.findViewById(R.id.switch1);
 
+        // finalsubmit = (Button) itemView.findViewById(R.id.button2);
         //set the switch to ON
-        mySwitch.setChecked(false);
+      /*  mySwitch.setChecked(false);
         //attach a listener to check for changes in state
         mySwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
 
@@ -78,7 +81,15 @@ public class TeacherViewHolder extends RecyclerView.ViewHolder {
         } else {
             submission.setText("In Progress");
         }
+*/
 
+        /*finalsubmit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+               delete(getAdapterPosition());
+            }
+        });
+         */
         TeacherName = (TextView) itemView.findViewById(R.id.staffname);
         q1 = (TextView) itemView.findViewById(R.id.q1);
         q2 = (TextView) itemView.findViewById(R.id.q2);
@@ -691,7 +702,8 @@ public class TeacherViewHolder extends RecyclerView.ViewHolder {
 
 
                                     submit.setBackgroundResource(R.color.colorPrimaryDark);
-                                    Toast.makeText(itemView.getContext(), "Submission for this teacher is done,Move onto next teacher", Toast.LENGTH_LONG).show();
+                                    Toast.makeText(itemView.getContext(), "Data recorded for this teacher,Click on Submit " +
+                                            "& Move onto next teacher", Toast.LENGTH_LONG).show();
                                     b01.setBackgroundResource(R.color.standardwhite);
                                     b02.setBackgroundResource(R.color.standardwhite);
                                     b03.setBackgroundResource(R.color.standardwhite);
@@ -725,6 +737,7 @@ public class TeacherViewHolder extends RecyclerView.ViewHolder {
                                     ElaborateAns.setText("");
 
                                     mref.push().child(prefManager.getMobileNumber()).setValue(object);
+
                                 }
                             })
                             .setNegativeButton(android.R.string.no, null).show();

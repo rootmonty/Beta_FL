@@ -37,6 +37,7 @@ import java.util.Map;
 
 import badebaba.tscore.MainActivity;
 import badebaba.tscore.R;
+import badebaba.tscore.RegionActivity;
 import badebaba.tscore.SMS.Service.HttpService;
 import badebaba.tscore.SMS.helper.PrefManager;
 
@@ -84,7 +85,7 @@ public class SmsActivity extends AppCompatActivity implements View.OnClickListen
         txtEditMobile = (TextView) findViewById(R.id.txt_edit_mobile);
         layoutEditMobile = (LinearLayout) findViewById(R.id.layout_edit_mobile);
 
-        findViewById(R.id.viewContainer).setOnTouchListener(new View.OnTouchListener() {
+       /* findViewById(R.id.viewContainer).setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
                 InputMethodManager imm = (InputMethodManager) getSystemService(INPUT_METHOD_SERVICE);
@@ -92,6 +93,7 @@ public class SmsActivity extends AppCompatActivity implements View.OnClickListen
                 return false;
             }
         });
+        */
         requestQueue = Volley.newRequestQueue(this);
         // view click listeners
         btnEditMobile.setOnClickListener(this);

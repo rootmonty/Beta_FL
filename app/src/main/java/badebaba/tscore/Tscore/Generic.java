@@ -195,7 +195,7 @@ public class Generic extends Fragment {
                 else {
                     new AlertDialog.Builder(v.getContext())
                             .setMessage("Sure to move to another form")
-                            .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                            .setPositiveButton("Proceed", new DialogInterface.OnClickListener() {
                                 @Override
                                 public void onClick(DialogInterface arg0, int arg1) {
                                     // Toast.makeText(MainActivity.this,"You clicked yes button",Toast.LENGTH_LONG).show();
@@ -289,7 +289,12 @@ public class Generic extends Fragment {
                                     tv175.setBackgroundResource(R.color.standardwhite);
                                     FragmentManager fragmentManager = getFragmentManager();
                                     FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-                                    fragmentTransaction.replace(R.id.contentContainer, new Staffnew()).addToBackStack(null).commit();
+                                    if (((MainActivity) getActivity()).getRegion() == 1) {
+                                        fragmentTransaction.replace(R.id.contentContainer, new Staffnew()).addToBackStack(null).commit();
+                                    } else {
+                                        fragmentTransaction.replace(R.id.contentContainer, new Staff_yogi()).addToBackStack(null).commit();
+
+                                    }
                                 }
                             })
                             .setNegativeButton("NO", null)

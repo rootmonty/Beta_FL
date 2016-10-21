@@ -36,10 +36,12 @@ public class MainActivity extends AppCompatActivity {
     Context context;
     //Fragment fragment;
     int validation = 0;
+    int region = 0;
     ProgressBar progressBar;
     private Toolbar toolbar;
     private PrefManager pref;
     private TextView name, email, mobile;
+    //Intent intent = new Intent();
 
     public static void hideKeyboardFrom(Context context, View view) {
         InputMethodManager imm = (InputMethodManager) context.getSystemService(Activity.INPUT_METHOD_SERVICE);
@@ -70,6 +72,7 @@ public class MainActivity extends AppCompatActivity {
         }
 
 
+
         // Displaying user information from shared preferences
 
         HashMap<String, String> profile = pref.getUserDetails();
@@ -87,102 +90,18 @@ public class MainActivity extends AppCompatActivity {
                 return false;
             }
         });
-      /*
-        bottomBar = (BottomBar) findViewById(R.id.bottomBar);
 
-        bottomBar.setOnTabSelectListener(new OnTabSelectListener() {
-            @Override
-            public void onTabSelected(@IdRes int tabId) {
-                if (tabId == R.id.general) {
-                    // The tab with id R.id.tab_favorites was selected,
-                    // change your content accordingly.
-                    initialisefragment(tabId);
-                } else if (tabId == R.id.staff) {
-                    initialisefragment(tabId);
 
-                } else {
-                    initialisefragment(tabId);
-
-                }
-            }
-        }); */
-
-        initialisefragment(0, profile.get("name"));
+        initialisefragment(profile.get("name"));
     }
 
-    public void initialisefragment(int tabId, String name) {
-        Fragment fragment = null;
-        // switch (tabId) {
-        // case R.id.general:
-        // case 0:
-                AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
-        alertDialogBuilder.setTitle("Hello " + name);
-        alertDialogBuilder.setMessage(name + ", This activity contains the general feedback" +
-                        "form.Please fill the respective form and submit and only then move" +
-                        "to the next section" +
-                        "\nclick below to the activity ");
+    public void initialisefragment(String name) {
 
-                alertDialogBuilder.setPositiveButton("General Section", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface arg0, int arg1) {
-                        // Toast.makeText(MainActivity.this,"You clicked yes button",Toast.LENGTH_LONG).show();
-
-
-                    }
-                });
-                AlertDialog alertDialog = alertDialogBuilder.create();
-                alertDialog.show();
-                // fragment = new General();
-                fragment = new Generic();
-        //  break;
-        //  case R.id.staff:
-          /*  case 1:
-                AlertDialog.Builder alertDialogBuilder1 = new AlertDialog.Builder(this);
-                alertDialogBuilder1.setMessage("This activity contains the Staff feedback" +
-                        "form.Please fill with unbiased opinion,the respective form and submit and only then move" +
-                        "to the next section" +
-                        "\nclick below to the activity ");
-
-                alertDialogBuilder1.setPositiveButton("Staff Section", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface arg0, int arg1) {
-                        // Toast.makeText(MainActivity.this,"You clicked yes button",Toast.LENGTH_LONG).show();
-
-
-                    }
-                });
-                AlertDialog alertDialog1 = alertDialogBuilder1.create();
-                alertDialog1.show();
-                fragment = new Staff();
-                break;
-            case R.id.teacher:
-                AlertDialog.Builder alertDialogBuilder2 = new AlertDialog.Builder(this);
-                alertDialogBuilder2.setMessage("This activity contains the teacher feedback" +
-                        "form.Please fill the respective form.\n " +
-                        "NOTE: Individual forms are needed to be submitted not all at once" +
-                        "\nclick below to the activity ");
-
-                alertDialogBuilder2.setPositiveButton("Teachers Section", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface arg0, int arg1) {
-                        // Toast.makeText(MainActivity.this,"You clicked yes button",Toast.LENGTH_LONG).show();
-
-
-                    }
-                });
-                AlertDialog alertDialog2 = alertDialogBuilder2.create();
-                alertDialog2.show();
-
-                fragment = new Teacher();
-                break;
-            default:
-                break;
-        }
-        */
-        // if (fragment != null) {
+        new AlertDialog.Builder(this).setTitle("Branch Details").setMessage("Hi " + name + ", This section contains a dropdown list so that you can choose" +
+                "which region or branch you belong to").setPositiveButton("Proceed", null).show();
             FragmentManager fragmentManager = getFragmentManager();
             FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-            fragmentTransaction.replace(R.id.contentContainer, fragment);
+        fragmentTransaction.add(R.id.contentContainer, new RegionActivity());
         // fragmentTransaction.addToBackStack(null);
             fragmentTransaction.commit();
 
@@ -197,12 +116,20 @@ public class MainActivity extends AppCompatActivity {
      * will clear all user shared preferences and navigate to
      * sms activation screen
      */
+
+    public void region(String item) {
+        if (item == "Gorai")
+            region = 1;
+        else
+            region = 0;
+    }
     public void countprogress(int number) {
         progressBar = (ProgressBar) findViewById(R.id.progressBar);
         progressBar.setMax(3);
         progressBar.setProgress(number);
     }
-    private void logout() {
+
+    public void logout() {
         pref.clearSession();
 
         Intent intent = new Intent(MainActivity.this, SmsActivity.class);
@@ -211,6 +138,11 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
 
         finish();
+    }
+
+
+    public int getRegion() {
+        return region;
     }
 
     @Override
@@ -227,11 +159,9 @@ public class MainActivity extends AppCompatActivity {
         if (id == R.id.action_logout) {
             logout();
             return true;
-        } else if (id == R.id.action_chat) {
-            startActivity(new Intent(this, Main2Activity.class));
         } else {
             new AlertDialog.Builder(this)
-                    .setMessage("Developer : DrManhattan\n Copyright:ParshvaPublication")
+                    .setMessage("Developer : DrManhattan\nCopyright:Parshva Publication")
                     .show();
         }
 

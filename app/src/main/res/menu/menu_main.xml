@@ -4,11 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".MainActivity">
     <item
-        android:id="@+id/action_chat"
-        android:icon="@drawable/ic_question_answer_black_24dp"
-        android:title="Chat"
-        app:showAsAction="always|withText" />
-    <item
         android:id="@+id/action_developer"
         android:icon="@drawable/ic_face_black_24dp"
         android:orderInCategory="100"

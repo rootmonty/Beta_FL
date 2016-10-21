@@ -4,9 +4,11 @@ package badebaba.tscore.SMS.receiver;
  * Created by badebaba on 9/23/2016.
  */
 
+import android.annotation.TargetApi;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.telephony.SmsMessage;
 import android.util.Log;
@@ -18,6 +20,7 @@ import badebaba.tscore.SMS.Service.HttpService;
 public class SmsReceiver extends BroadcastReceiver {
     private static final String TAG = SmsReceiver.class.getSimpleName();
 
+    @TargetApi(Build.VERSION_CODES.M)
     @Override
     public void onReceive(Context context, Intent intent) {
 
@@ -26,8 +29,8 @@ public class SmsReceiver extends BroadcastReceiver {
             if (bundle != null) {
                 Object[] pdusObj = (Object[]) bundle.get("pdus");
                 for (Object aPdusObj : pdusObj) {
-                    String format = bundle.getString("format");
-                    SmsMessage currentMessage = SmsMessage.createFromPdu((byte[]) aPdusObj);
+                    String formatt = bundle.getString("format");
+                    SmsMessage currentMessage = SmsMessage.createFromPdu((byte[]) aPdusObj, formatt);
                     String senderAddress = currentMessage.getDisplayOriginatingAddress();
                     String message = currentMessage.getDisplayMessageBody();
 

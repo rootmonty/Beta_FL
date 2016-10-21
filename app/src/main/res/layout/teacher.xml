@@ -80,7 +80,7 @@
                 android:id="@+id/switch1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="SubmissionProgress" />
+                android:text="Submission Status" />
 
             <Button
                 android:id="@+id/submitbut"
@@ -89,7 +89,7 @@
                 android:layout_gravity="center_horizontal"
                 android:background="@color/standardwhite"
                 android:elevation="3dp"
-                android:text="SUBMIT" />
+                android:text="Submit" />
 
         </LinearLayout>
 

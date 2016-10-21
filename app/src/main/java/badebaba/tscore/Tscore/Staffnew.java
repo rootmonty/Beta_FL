@@ -17,9 +17,12 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.firebase.client.Firebase;
+
 import badebaba.tscore.Bruteforce.Dbstaff;
 import badebaba.tscore.MainActivity;
 import badebaba.tscore.R;
+import badebaba.tscore.SMS.helper.PrefManager;
 
 /**
  * Created by badebaba on 10/15/2016.
@@ -31,24 +34,22 @@ public class Staffnew extends Fragment {
     TextView tv101, tv102, tv103, tv104, tv105;
     TextView tv201, tv202, tv203, tv204, tv205;
     TextView tv301, tv302, tv303, tv304, tv305;
-    TextView tv401, tv402, tv403, tv404, tv405;
     TextView tv011, tv012, tv013, tv014, tv015;
     TextView tv111, tv112, tv113, tv114, tv115;
     TextView tv211, tv212, tv213, tv214, tv215;
     TextView tv311, tv312, tv313, tv314, tv315;
-    TextView tv411, tv412, tv413, tv414, tv415;
     TextView tv021, tv022, tv023, tv024, tv025;
     TextView tv121, tv122, tv123, tv124, tv125;
     TextView tv221, tv222, tv223, tv224, tv225;
     TextView tv321, tv322, tv323, tv324, tv325;
-    TextView tv421, tv422, tv423, tv424, tv425;
     EditText edt1, edt2, edt3, edt4, edt5, comment;
     Button submit;
 
     Dbstaff db = new Dbstaff();
+    Firebase mref;
     // char c = "0";
 
-
+    PrefManager pref;
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -57,8 +58,10 @@ public class Staffnew extends Fragment {
         getActivity().setTitle(getString(R.string.stafftab));
         submit = (Button) root.findViewById(R.id.button);
 
+        mref = new Firebase("https://tscore-cc104.firebaseio.com/Staff_Gorai/");
         ((MainActivity) getActivity()).countprogress(1);
 
+        pref = new PrefManager(root.getContext());
         tv001 = (TextView) root.findViewById(R.id.stb001);
         tv002 = (TextView) root.findViewById(R.id.stb002);
         tv003 = (TextView) root.findViewById(R.id.stb003);
@@ -123,21 +126,6 @@ public class Staffnew extends Fragment {
         tv324 = (TextView) root.findViewById(R.id.stb424);
         tv325 = (TextView) root.findViewById(R.id.stb425);
 
-        tv401 = (TextView) root.findViewById(R.id.stb501);
-        tv402 = (TextView) root.findViewById(R.id.stb502);
-        tv403 = (TextView) root.findViewById(R.id.stb503);
-        tv404 = (TextView) root.findViewById(R.id.stb504);
-        tv405 = (TextView) root.findViewById(R.id.stb505);
-        tv411 = (TextView) root.findViewById(R.id.stb511);
-        tv412 = (TextView) root.findViewById(R.id.stb512);
-        tv413 = (TextView) root.findViewById(R.id.stb513);
-        tv414 = (TextView) root.findViewById(R.id.stb514);
-        tv415 = (TextView) root.findViewById(R.id.stb515);
-        tv421 = (TextView) root.findViewById(R.id.stb521);
-        tv422 = (TextView) root.findViewById(R.id.stb522);
-        tv423 = (TextView) root.findViewById(R.id.stb523);
-        tv424 = (TextView) root.findViewById(R.id.stb524);
-        tv425 = (TextView) root.findViewById(R.id.stb525);
 
         edt1 = (EditText) root.findViewById(R.id.edt1);
         edt2 = (EditText) root.findViewById(R.id.edt2);
@@ -1079,229 +1067,6 @@ public class Staffnew extends Fragment {
             }
         };
 
-        View.OnClickListener clicklistener041 = new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                switch (v.getId()) {
-                    case R.id.stb501:
-                        if (tv401.getBackground() != null || tv402.getBackground() != null || tv403.getBackground() != null
-                                || tv405.getBackground() != null) {
-                            tv404.setBackgroundResource(R.color.standardwhite);
-                            tv402.setBackgroundResource(R.color.standardwhite);
-                            tv403.setBackgroundResource(R.color.standardwhite);
-                            tv405.setBackgroundResource(R.color.standardwhite);
-                        }
-
-
-                        tv401.setBackgroundResource(R.drawable.fill);
-                        db.setAns51("1");
-                        break;
-                    case R.id.stb502:
-                        if (tv404.getBackground() != null || tv401.getBackground() != null || tv403.getBackground() != null
-                                || tv405.getBackground() != null) {
-                            tv404.setBackgroundResource(R.color.standardwhite);
-                            tv401.setBackgroundResource(R.color.standardwhite);
-                            tv403.setBackgroundResource(R.color.standardwhite);
-                            tv405.setBackgroundResource(R.color.standardwhite);
-                        }
-
-                        tv402.setBackgroundResource(R.drawable.fill);
-                        db.setAns51("2");
-                        break;
-                    case R.id.stb503:
-                        if (tv401.getBackground() != null || tv402.getBackground() != null || tv404.getBackground() != null
-                                || tv405.getBackground() != null) {
-                            tv401.setBackgroundResource(R.color.standardwhite);
-                            tv402.setBackgroundResource(R.color.standardwhite);
-                            tv404.setBackgroundResource(R.color.standardwhite);
-                            tv405.setBackgroundResource(R.color.standardwhite);
-                        }
-
-                        tv403.setBackgroundResource(R.drawable.fill);
-                        db.setAns51("3");
-                        break;
-                    case R.id.stb504:
-                        if (tv401.getBackground() != null || tv402.getBackground() != null || tv403.getBackground() != null
-                                || tv405.getBackground() != null) {
-                            tv401.setBackgroundResource(R.color.standardwhite);
-                            tv402.setBackgroundResource(R.color.standardwhite);
-                            tv403.setBackgroundResource(R.color.standardwhite);
-                            tv405.setBackgroundResource(R.color.standardwhite);
-                        }
-
-                        tv404.setBackgroundResource(R.drawable.fill);
-                        db.setAns51("4");
-                        break;
-                    case R.id.stb505:
-                        if (tv404.getBackground() != null || tv402.getBackground() != null || tv403.getBackground() != null
-                                || tv401.getBackground() != null) {
-                            tv401.setBackgroundResource(R.color.standardwhite);
-                            tv402.setBackgroundResource(R.color.standardwhite);
-                            tv403.setBackgroundResource(R.color.standardwhite);
-                            tv404.setBackgroundResource(R.color.standardwhite);
-                        }
-
-                        tv405.setBackgroundResource(R.drawable.fill);
-                        db.setAns51("5");
-                        break;
-                    default:
-                        db.setAns51("0");
-                        break;
-                }
-                //Toast.makeText(v.getContext(),"Rating:"+db.getAns51(),Toast.LENGTH_LONG).show();
-
-            }
-        };
-
-        View.OnClickListener clicklistener042 = new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                switch (v.getId()) {
-                    case R.id.stb511:
-                        if (tv411.getBackground() != null || tv412.getBackground() != null || tv413.getBackground() != null
-                                || tv415.getBackground() != null) {
-                            tv414.setBackgroundResource(R.color.standardwhite);
-                            tv412.setBackgroundResource(R.color.standardwhite);
-                            tv413.setBackgroundResource(R.color.standardwhite);
-                            tv415.setBackgroundResource(R.color.standardwhite);
-                        }
-
-
-                        tv411.setBackgroundResource(R.drawable.fill);
-                        db.setAns52("1");
-                        break;
-                    case R.id.stb512:
-                        if (tv414.getBackground() != null || tv411.getBackground() != null || tv413.getBackground() != null
-                                || tv415.getBackground() != null) {
-                            tv414.setBackgroundResource(R.color.standardwhite);
-                            tv411.setBackgroundResource(R.color.standardwhite);
-                            tv413.setBackgroundResource(R.color.standardwhite);
-                            tv415.setBackgroundResource(R.color.standardwhite);
-                        }
-
-                        tv412.setBackgroundResource(R.drawable.fill);
-                        db.setAns52("2");
-                        break;
-                    case R.id.stb513:
-                        if (tv411.getBackground() != null || tv412.getBackground() != null || tv414.getBackground() != null
-                                || tv415.getBackground() != null) {
-                            tv411.setBackgroundResource(R.color.standardwhite);
-                            tv412.setBackgroundResource(R.color.standardwhite);
-                            tv414.setBackgroundResource(R.color.standardwhite);
-                            tv415.setBackgroundResource(R.color.standardwhite);
-                        }
-
-                        tv413.setBackgroundResource(R.drawable.fill);
-                        db.setAns52("3");
-                        break;
-                    case R.id.stb514:
-                        if (tv411.getBackground() != null || tv412.getBackground() != null || tv413.getBackground() != null
-                                || tv415.getBackground() != null) {
-                            tv411.setBackgroundResource(R.color.standardwhite);
-                            tv412.setBackgroundResource(R.color.standardwhite);
-                            tv413.setBackgroundResource(R.color.standardwhite);
-                            tv415.setBackgroundResource(R.color.standardwhite);
-                        }
-
-                        tv414.setBackgroundResource(R.drawable.fill);
-                        db.setAns52("4");
-                        break;
-                    case R.id.stb515:
-                        if (tv414.getBackground() != null || tv412.getBackground() != null || tv413.getBackground() != null
-                                || tv411.getBackground() != null) {
-                            tv411.setBackgroundResource(R.color.standardwhite);
-                            tv412.setBackgroundResource(R.color.standardwhite);
-                            tv413.setBackgroundResource(R.color.standardwhite);
-                            tv414.setBackgroundResource(R.color.standardwhite);
-                        }
-
-                        tv415.setBackgroundResource(R.drawable.fill);
-                        db.setAns52("5");
-                        break;
-                    default:
-                        db.setAns52("0");
-                        break;
-                }
-                //Toast.makeText(v.getContext(),"Rating:"+db.getAns52(),Toast.LENGTH_LONG).show();
-
-            }
-        };
-
-
-        View.OnClickListener clicklistener043 = new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                switch (v.getId()) {
-                    case R.id.stb521:
-                        if (tv421.getBackground() != null || tv422.getBackground() != null || tv423.getBackground() != null
-                                || tv425.getBackground() != null) {
-                            tv424.setBackgroundResource(R.color.standardwhite);
-                            tv422.setBackgroundResource(R.color.standardwhite);
-                            tv423.setBackgroundResource(R.color.standardwhite);
-                            tv425.setBackgroundResource(R.color.standardwhite);
-                        }
-
-
-                        tv421.setBackgroundResource(R.drawable.fill);
-                        db.setAns53("1");
-                        break;
-                    case R.id.stb522:
-                        if (tv424.getBackground() != null || tv421.getBackground() != null || tv423.getBackground() != null
-                                || tv425.getBackground() != null) {
-                            tv424.setBackgroundResource(R.color.standardwhite);
-                            tv421.setBackgroundResource(R.color.standardwhite);
-                            tv423.setBackgroundResource(R.color.standardwhite);
-                            tv425.setBackgroundResource(R.color.standardwhite);
-                        }
-
-                        tv422.setBackgroundResource(R.drawable.fill);
-                        db.setAns53("2");
-                        break;
-                    case R.id.stb523:
-                        if (tv421.getBackground() != null || tv422.getBackground() != null || tv424.getBackground() != null
-                                || tv425.getBackground() != null) {
-                            tv421.setBackgroundResource(R.color.standardwhite);
-                            tv422.setBackgroundResource(R.color.standardwhite);
-                            tv424.setBackgroundResource(R.color.standardwhite);
-                            tv425.setBackgroundResource(R.color.standardwhite);
-                        }
-
-                        tv423.setBackgroundResource(R.drawable.fill);
-                        db.setAns53("3");
-                        break;
-                    case R.id.stb524:
-                        if (tv421.getBackground() != null || tv422.getBackground() != null || tv423.getBackground() != null
-                                || tv425.getBackground() != null) {
-                            tv421.setBackgroundResource(R.color.standardwhite);
-                            tv422.setBackgroundResource(R.color.standardwhite);
-                            tv423.setBackgroundResource(R.color.standardwhite);
-                            tv425.setBackgroundResource(R.color.standardwhite);
-                        }
-
-                        tv424.setBackgroundResource(R.drawable.fill);
-                        db.setAns53("4");
-                        break;
-                    case R.id.stb525:
-                        if (tv424.getBackground() != null || tv422.getBackground() != null || tv423.getBackground() != null
-                                || tv421.getBackground() != null) {
-                            tv421.setBackgroundResource(R.color.standardwhite);
-                            tv422.setBackgroundResource(R.color.standardwhite);
-                            tv423.setBackgroundResource(R.color.standardwhite);
-                            tv424.setBackgroundResource(R.color.standardwhite);
-                        }
-
-                        tv425.setBackgroundResource(R.drawable.fill);
-                        db.setAns53("5");
-                        break;
-                    default:
-                        db.setAns53("0");
-                        break;
-                }
-                //Toast.makeText(v.getContext(),"Rating:"+db.getAns53(),Toast.LENGTH_LONG).show();
-
-            }
-        };
-
 
         tv001.setOnClickListener(clicklistener001);
         tv002.setOnClickListener(clicklistener001);
@@ -1379,62 +1144,28 @@ public class Staffnew extends Fragment {
         tv325.setOnClickListener(clicklistener033);
 
 
-        tv401.setOnClickListener(clicklistener041);
-        tv402.setOnClickListener(clicklistener041);
-        tv403.setOnClickListener(clicklistener041);
-        tv404.setOnClickListener(clicklistener041);
-        tv405.setOnClickListener(clicklistener041);
-
-        tv411.setOnClickListener(clicklistener042);
-        tv412.setOnClickListener(clicklistener042);
-        tv413.setOnClickListener(clicklistener042);
-        tv414.setOnClickListener(clicklistener042);
-        tv415.setOnClickListener(clicklistener042);
-
-        tv421.setOnClickListener(clicklistener043);
-        tv422.setOnClickListener(clicklistener043);
-        tv423.setOnClickListener(clicklistener043);
-        tv424.setOnClickListener(clicklistener043);
-        tv425.setOnClickListener(clicklistener043);
-
-
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 db.setEdt1(edt1.getText().toString());
-                db.setEdt1(edt1.getText().toString());
-                db.setEdt1(edt1.getText().toString());
-                db.setEdt1(edt1.getText().toString());
-                db.setEdt1(edt1.getText().toString());
-
-                Log.i("THE DB IS :", db.getAns11() + "");
-                Log.i("THE DB IS :", db.getAns12() + "");
-                Log.i("THE DB IS :", db.getAns13() + "");
-                Log.i("THE DB IS :", db.getAns21() + "");
-                Log.i("THE DB IS :", db.getAns22() + "");
-                Log.i("THE DB IS :", db.getAns23() + "");
-                Log.i("THE DB IS :", db.getAns31() + "");
-                Log.i("THE DB IS :", db.getAns32() + "");
-                Log.i("THE DB IS :", db.getAns33() + "");
-                Log.i("THE DB IS :", db.getAns41() + "");
-                Log.i("THE DB IS :", db.getAns42() + "");
-                Log.i("THE DB IS :", db.getAns43() + "");
-                Log.i("THE DB IS :", db.getAns51() + "");
-                Log.i("THE DB IS :", db.getAns52() + "");
-                Log.i("THE DB IS :", db.getAns53() + "");
+                db.setEdt2(edt2.getText().toString());
+                db.setEdt3(edt3.getText().toString());
+                db.setEdt4(edt4.getText().toString());
+                db.setEdt5(edt5.getText().toString());
 
                 if (db.getAns11() == "0" || db.getAns12() == "0" || db.getAns13() == "0" || db.getAns21() == "0" || db.getAns22() == "0" ||
                         db.getAns23() == "0" || db.getAns31() == "0" || db.getAns32() == "0" || db.getAns33() == "0" || db.getAns41() == "0" ||
-                        db.getAns42() == "0" || db.getAns43() == "0" || db.getAns51() == "0" || db.getAns52() == "0" || db.getAns53() == "0") {
+                        db.getAns42() == "0" || db.getAns43() == "0") {
                     Toast.makeText(v.getContext(), "Fill the entire details first", Toast.LENGTH_LONG).show();
                 } else {
 
                     new AlertDialog.Builder(v.getContext())
                             .setTitle("ALERT")
                             .setMessage("Are you sure you want to submit?")
-                            .setPositiveButton("YES", new DialogInterface.OnClickListener() {
+                            .setPositiveButton("Proceed", new DialogInterface.OnClickListener() {
                                 @Override
                                 public void onClick(DialogInterface dialog, int which) {
+                                    mref.child(pref.getMobileNumber()).push().setValue(db);
                                     FragmentManager fragmentManager = getFragmentManager();
                                     FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
                                     fragmentTransaction.replace(R.id.contentContainer, new Teacher())
